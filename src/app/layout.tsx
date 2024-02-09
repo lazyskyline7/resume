@@ -1,8 +1,9 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import getConfig from 'next/config';
 import "./globals.css";
+import Script from "next/script";
 
-const inter = Inter({ subsets: ["latin"] });
+const { publicRuntimeConfig } = getConfig();
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -16,7 +17,20 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <body>{children}
+      <Script id="gtag">
+        {`
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', '${publicRuntimeConfig.measurementId}');
+        `}
+      </Script>
+      <Script
+        strategy="afterInteractive"
+        src={`https://www.googletagmanager.com/gtag/js?id=${publicRuntimeConfig.measurementId}`}
+      />
+      </body>
     </html>
   );
 }
