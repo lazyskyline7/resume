@@ -1,9 +1,6 @@
 import type { Metadata } from "next";
-import getConfig from 'next/config';
 import "./globals.css";
 import Script from "next/script";
-
-const { publicRuntimeConfig } = getConfig();
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -23,12 +20,12 @@ export default function RootLayout({
         window.dataLayer = window.dataLayer || [];
         function gtag(){dataLayer.push(arguments);}
         gtag('js', new Date());
-        gtag('config', '${publicRuntimeConfig.measurementId}');
+        gtag('config', '${ process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID }');
         `}
       </Script>
       <Script
         strategy="afterInteractive"
-        src={`https://www.googletagmanager.com/gtag/js?id=${publicRuntimeConfig.measurementId}`}
+        src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID}`}
       />
       </body>
     </html>

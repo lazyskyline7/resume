@@ -40,10 +40,9 @@ jobs:
         uses: oven-sh/setup-bun@v1
         with:
           bun-version: latest
-          cache: ${{ steps.detect-package-manager.outputs.manager }}
       - name: Set Secrets to .env
         run: |
-          echo "NEXT_PUBLIC_GA_MEASUREMENT_ID=${{ secrets.NEXT_PUBLIC_GA_MEASUREMENT_ID }}" >> .env
+          echo "NEXT_PUBLIC_GA_MEASUREMENT_ID=${{ secrets.NEXT_PUBLIC_GA_MEASUREMENT_ID }}" >> .env.local
       - name: Setup Pages
         uses: actions/configure-pages@v4
         with:
