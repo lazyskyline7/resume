@@ -10,17 +10,17 @@ interface TimeLineItemProps {
 const TimeLineItem: FC<TimeLineItemProps> = ({ title, info }) => (
   <div>
     <div className="flex justify-between gap-8">
-      <div className="items-center gap-0.5">
+      <div className="flex items-center gap-0.5">
         <CgShapeCircle />
-        <div className="font-semibold">
+        <div className="font-semibold text-sm lg:text-base">
           {title}, {info.location}
         </div>
       </div>
-      <div>
+      <div className='text-xs lg:text-base'>
         {info.from} - {info.to}
       </div>
     </div>
-    <div className="ml-2">
+    <div className="ml-2 text-sm lg:text-base">
       <div>{info.degree}</div>
       {info.content?.map((item, i) => (
         <InfoContent

@@ -7,9 +7,9 @@ interface BiosProps {
 }
 const Bios: FC<BiosProps> = ({ profile }) => (
   <div>
-    <div className="text-3xl sm:text-5xl mb-0.5">{profile.name}</div>
-    <div className='text-lg sm:text-xl'>{profile.summary}</div>
-    {/* <Text fontSize={{ base: 'lg', sm: 'xl' }}>{profile.target}</Text> */}
+    <div className="text-3xl lg:text-5xl mb-2">{profile.name}</div>
+    <div className="text-lg lg:text-xl">{profile.summary}</div>
+    {/* <Text className="text-lg lg:text-xl">{profile.target}</Text> */}
   </div>
 );
 

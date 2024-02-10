@@ -2,6 +2,7 @@
 import React, { FC, useCallback } from 'react';
 import type { Content } from '@/types';
 import { event } from '@/ga';
+import { LuDot } from 'react-icons/lu';
 
 const InfoContent: FC<Content> = ({ title, url, details }) => {
   const handleClick = useCallback((url?: string) => {
@@ -17,7 +18,8 @@ const InfoContent: FC<Content> = ({ title, url, details }) => {
       {title && <InfoTitle title={title} url={url} />}
       <ul>
         {details?.map((detail, i) => (
-          <li key={i}>
+          <li key={i} className="flex items-center gap-0.5">
+            <LuDot size="18px" />
             {detail.url ? (
               <a
                 href={detail.url}
@@ -25,12 +27,10 @@ const InfoContent: FC<Content> = ({ title, url, details }) => {
                 rel="noopener noreferrer"
                 onClick={() => handleClick(detail.url)}
               >
-                <div className="font-semibold text-cyan-600">
-                  {detail.title}
-                </div>
+                <div className="text-cyan-600">{detail.title}</div>
               </a>
             ) : (
-              <div className="font-medium">{detail.title}</div>
+              <div>{detail.title}</div>
             )}
           </li>
         ))}

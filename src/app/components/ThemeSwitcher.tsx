@@ -57,12 +57,12 @@ const ThemeSwitcher: FC = () => {
     }
   }, [theme]);
   return theme === 'dark' ? (
-    <BsSun
+    <BsMoon
       className="absolute top-1 right-1 print:hidden cursor-pointer"
       onClick={handleToggle}
     />
   ) : (
-    <BsMoon
+    <BsSun
       className="absolute top-1 right-1 print:hidden cursor-pointer"
       onClick={handleToggle}
     />
