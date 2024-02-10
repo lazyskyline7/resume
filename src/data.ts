@@ -11,13 +11,18 @@ import {
 const PROFILE: ProfileData = {
   name: 'Kung-Ling Hsu',
   image: './profile.png',
-  mail: 'lancehsu12@gmail.com',
   summary:
     'A detail-oriented and dependable software engineer with 4+ years experience. Familiar with React, TypeScript, GraphQL, and Redux. Experienced in developing web and decentralized applications.',
-  github: 'https://github.com/lancehsu',
-  linkedIn: 'https://www.linkedin.com/in/klhsu/',
+  socialLinks: [
+    {
+      name: 'GitHub',
+      link: 'https://github.com/lancehsu',
+    },
+    { name: 'LinkedIn', link: 'https://www.linkedin.com/in/klhsu' },
+    { name: 'Email', link: 'lancehsu12@gmail.com' },
+  ],
   target: 'Front-end/Full-stack engineer',
-};
+} as const;
 
 const SKILL_SET: SkillSetData = {
   proficiency: [
@@ -188,7 +193,7 @@ const EDUCATION: ExperienceData<College> = {
     to: 'Jun 2014',
     degree: 'Bachelor of Engineering, Chemical Engineering',
   },
-};
+} as const;
 
 const PROJECT: ProjectData = {
   azure: {
@@ -198,7 +203,7 @@ const PROJECT: ProjectData = {
     content:
       'A sample showing how to deploy a Custom Vision model to Azure IoT edge device and get Machine learning solution up and running in a single day.',
   },
-};
+} as const;
 
 export const EXPERIENCE_NAME_MAP = {
   ntu: 'National Taiwan University',
@@ -207,11 +212,11 @@ export const EXPERIENCE_NAME_MAP = {
   appier: 'Appier Inc.',
   cdc: 'Crypto.com',
   cronos: 'Cronos Labs',
-};
+} as const;
 
 export const PROJECT_NAME_MAP = {
   azure: 'Factory AI Vision',
-};
+} as const;
 
 const DATA: ResumeData = {
   profile: PROFILE,
@@ -219,6 +224,6 @@ const DATA: ResumeData = {
   workExperience: WORK_EXPERIENCE,
   education: EDUCATION,
   project: PROJECT,
-};
+} as const;
 
 export default DATA;

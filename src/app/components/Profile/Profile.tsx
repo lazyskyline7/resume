@@ -2,55 +2,49 @@
 import React, { FC, useCallback } from 'react';
 import { AiFillGithub, AiFillLinkedin, AiOutlineMail } from 'react-icons/ai';
 import Bios from './Bios';
-import type { ProfileData } from '@/types';
+import type { ProfileData, SocialLinkType } from '@/types';
 import { event } from '@/ga';
+import { IconType } from 'react-icons';
+
+const SOCIAL_LINK_ICON_MAP: Record<SocialLinkType, IconType> = {
+  Email: AiOutlineMail,
+  LinkedIn: AiFillLinkedin,
+  GitHub: AiFillGithub,
+} as const;
 
 interface ProfileProps {
   profile: ProfileData;
 }
 const Profile: FC<ProfileProps> = ({ profile }) => {
-  const handleClick = useCallback((linkType: string) => {
+  const handleClick = useCallback((linkType: SocialLinkType) => {
     event('click', {
       category: 'social',
       label: linkType,
     });
   }, []);
+
   return (
     <div>
       <Bios profile={profile} />
-      <div className="flex flex-row sm:flex-col gap-1 sm:gap-2 mt-1">
-        <div className="flex gap-1">
-          <a
-            className="h-6"
-            href={profile.linkedIn}
-            target="_blank"
-            rel="noopener noreferrer"
-            onClick={() => handleClick('linkedin')}
-          >
-            <AiFillLinkedin className="fill-[#0072b1] size-6" />
-          </a>
-          <a
-            className="h-6"
-            href={profile.github}
-            target="_blank"
-            rel="noopener noreferrer"
-            onClick={() => handleClick('github')}
-          >
-            <AiFillGithub className="size-6" />
-          </a>
-        </div>
-        <a
-          className="h-6 no-underline w-fit"
-          href={`mailto: ${profile.mail}`}
-          onClick={() => handleClick('mail')}
-        >
-          <div className="inline-flex items-center gap-1">
-            <AiOutlineMail className="size-6" />
-            <div className="font-medium text-cyan-600 sm:hidden">
-              {profile.mail}
-            </div>
-          </div>
-        </a>
+      <div className="flex flex-row lg:flex-col gap-1 lg:gap-2 mt-1">
+        {profile.socialLinks.map((e) => {
+          const Icon = SOCIAL_LINK_ICON_MAP[e.name];
+          return (
+            <a
+              key={e.name}
+              className="h-6 no-underline w-fit inline-flex items-center gap-1"
+              href={e.link}
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={() => handleClick(e.name)}
+            >
+              <Icon className="size-6" />
+              <div className="font-medium text-cyan-600 hidden lg:block">
+                {e.link}
+              </div>
+            </a>
+          );
+        })}
       </div>
     </div>
   );
