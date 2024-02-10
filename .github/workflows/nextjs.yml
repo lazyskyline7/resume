@@ -41,6 +41,9 @@ jobs:
         with:
           bun-version: latest
           cache: ${{ steps.detect-package-manager.outputs.manager }}
+      - name: Set Secrets to .env
+        run: |
+          echo "NEXT_PUBLIC_GA_MEASUREMENT_ID=${{ secrets.NEXT_PUBLIC_GA_MEASUREMENT_ID }}" >> .env
       - name: Setup Pages
         uses: actions/configure-pages@v4
         with:
