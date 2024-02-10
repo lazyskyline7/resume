@@ -36,7 +36,11 @@ const store = {
 
 const colorMode = 'light';
 const ThemeSwitcher: FC = () => {
-  const theme = useSyncExternalStore(store.subscribe, store.getSnapshot, store.getServerSnapshot);
+  const theme = useSyncExternalStore(
+    store.subscribe,
+    store.getSnapshot,
+    store.getServerSnapshot
+  );
 
   const handleToggle = useCallback(() => {
     store.toggleTheme();

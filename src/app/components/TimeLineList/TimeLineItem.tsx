@@ -16,7 +16,7 @@ const TimeLineItem: FC<TimeLineItemProps> = ({ title, info }) => (
           {title}, {info.location}
         </div>
       </div>
-      <div className='text-xs lg:text-base'>
+      <div className="text-xs lg:text-base">
         {info.from} - {info.to}
       </div>
     </div>
