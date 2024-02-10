@@ -1,35 +1,24 @@
-"use client"
-import React, { useCallback, useState } from 'react';
 import ThemeSwitcher from './components/ThemeSwitcher';
 import PrintSwitcher from './components/PrintSwitcher';
 import Profile from './components/Profile';
 import SkillSet from './components/SkillSet';
 import TimeLineList from './components/TimeLineList';
 import DATA from '@/data';
-import classNames from 'classnames';
+import { FC } from 'react';
 
-const Home: React.FC = () => {
-  const [enablePrint, setEnablePrint] = useState(false);
-  const toggleEnablePrint = useCallback(
-    () => setEnablePrint((prev) => !prev),
-    []
-  );
-
+const Home: FC = () => {
   return (
-    <div className="max-w-[1200px] w-full m-auto">
-      <ThemeSwitcher />
-
-      <div
-        className={classNames('flex flex-col gap-1 py-4 px-8', {
-          'print:hidden': enablePrint,
-        })}
-      >
-        <Profile profile={DATA.profile} />
-        <SkillSet skillSet={DATA.skillSet} />
-        <TimeLineList title="Work Experience" list={DATA.workExperience} />
-        <TimeLineList title="Education" list={DATA.education} />
+    <div className="relative dark:bg-slate-800 dark:text-slate-50">
+      <div className="max-w-[1200px] w-full m-auto">
+        <div className="flex flex-col gap-1 py-4 px-8">
+          <Profile profile={DATA.profile} />
+          <SkillSet skillSet={DATA.skillSet} />
+          <TimeLineList title="Work Experience" list={DATA.workExperience} />
+          <TimeLineList title="Education" list={DATA.education} />
+        </div>
       </div>
-      <PrintSwitcher enablePrint={enablePrint} onToggle={toggleEnablePrint} />
+      <ThemeSwitcher />
+      <PrintSwitcher />
     </div>
   );
 };

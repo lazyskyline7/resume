@@ -1,8 +1,9 @@
-import React, { useCallback } from 'react';
+'use client';
+import React, { FC, useCallback } from 'react';
 import type { Content } from '@/types';
 import { event } from '@/ga';
 
-const InfoContent: React.FC<Content> = ({ title, url, details }) => {
+const InfoContent: FC<Content> = ({ title, url, details }) => {
   const handleClick = useCallback((url?: string) => {
     if (url) {
       event('click', {
@@ -42,7 +43,7 @@ interface InfoTitleProps {
   title: string;
   url?: string;
 }
-const InfoTitle: React.FC<InfoTitleProps> = ({ title, url }) => {
+const InfoTitle: FC<InfoTitleProps> = ({ title, url }) => {
   const handleClick = useCallback((url: string) => {
     if (url) {
       event('click', {

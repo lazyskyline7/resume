@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { FC } from 'react';
 import SkillList from './SkillList';
 import type { SkillLevel, SkillSetData } from '@/types';
 import Title from '../Title';
@@ -6,7 +6,7 @@ import Title from '../Title';
 interface SkillSetProps {
   skillSet: SkillSetData;
 }
-const SkillSet: React.FC<SkillSetProps> = ({ skillSet }) => (
+const SkillSet: FC<SkillSetProps> = ({ skillSet }) => (
   <div>
     <Title>Skills</Title>
     <div className='flex gap-1 sm:gap-3 flex-col sm:flex-row' >

@@ -1,4 +1,5 @@
-import React, { useCallback } from 'react';
+'use client';
+import React, { FC, useCallback } from 'react';
 import { AiFillGithub, AiFillLinkedin, AiOutlineMail } from 'react-icons/ai';
 import Bios from './Bios';
 import type { ProfileData } from '@/types';
@@ -7,7 +8,7 @@ import { event } from '@/ga';
 interface ProfileProps {
   profile: ProfileData;
 }
-const Profile: React.FC<ProfileProps> = ({ profile }) => {
+const Profile: FC<ProfileProps> = ({ profile }) => {
   const handleClick = useCallback((linkType: string) => {
     event('click', {
       category: 'social',
