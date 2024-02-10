@@ -8,6 +8,9 @@ const store = {
   getSnapshot() {
     return localStorage.getItem('theme');
   },
+  getServerSnapshot() {
+    return '';
+  },
   subscribe(listener: () => void) {
     window.addEventListener('storage', listener);
     return () => void window.removeEventListener('storage', listener);
@@ -33,7 +36,7 @@ const store = {
 
 const colorMode = 'light';
 const ThemeSwitcher: FC = () => {
-  const theme = useSyncExternalStore(store.subscribe, store.getSnapshot);
+  const theme = useSyncExternalStore(store.subscribe, store.getSnapshot, store.getServerSnapshot);
 
   const handleToggle = useCallback(() => {
     store.toggleTheme();
