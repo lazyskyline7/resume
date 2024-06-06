@@ -12,7 +12,7 @@ const PROFILE: ProfileData = {
   name: 'Kung-Ling Hsu',
   image: './profile.png',
   summary:
-    'A detail-oriented and dependable software engineer with 4+ years experience. Familiar with React, TypeScript, GraphQL, and Redux. Experienced in developing web and decentralized applications.',
+    'A detail-oriented and dependable software engineer with 5+ years experience. Familiar with React, NextJS, TypeScript, GraphQL, and Redux. Experienced in developing web and decentralized applications.',
   socialLinks: [
     {
       name: 'GitHub',
