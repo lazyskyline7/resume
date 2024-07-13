@@ -12,7 +12,7 @@ const PROFILE: ProfileData = {
   name: 'Kung-Ling Hsu',
   image: './profile.png',
   summary:
-    'A detail-oriented and dependable software engineer with over 5 years of experience in developing robust web and decentralized applications. Proficient in React, Next.js, TypeScript, GraphQL, and Redux, with a proven track record of delivering solutions and enhancing user engagement. Adept at collaborating with cross-functional teams to drive project success and innovate new features.',
+    'A detail-oriented software engineer with 5+ years of experience in web and decentralized applications. Proficient in React, NextJS, TypeScript, GraphQL, and Zustand, with a track record of delivering efficient and scalable solutions and enhancing user engagement. Skilled in collaborating with cross-functional teams to drive project success.',
   socialLinks: [
     {
       name: 'GitHub',

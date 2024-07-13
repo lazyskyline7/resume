@@ -8,7 +8,7 @@ interface BiosProps {
 const Bios: FC<BiosProps> = ({ profile }) => (
   <div>
     <div className="text-3xl lg:text-5xl mb-2">{profile.name}</div>
-    <div className="text-lg lg:text-xl">{profile.summary}</div>
+    <div className="lg:text-lg">{profile.summary}</div>
     {/* <Text className="text-lg lg:text-xl">{profile.target}</Text> */}
   </div>
 );
