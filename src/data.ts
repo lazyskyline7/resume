@@ -12,7 +12,7 @@ const PROFILE: ProfileData = {
   name: 'Kung-Ling Hsu',
   image: './profile.png',
   summary:
-    'A detail-oriented and dependable software engineer with 5+ years experience. Familiar with React, NextJS, TypeScript, GraphQL, and Redux. Experienced in developing web and decentralized applications.',
+    'A detail-oriented and dependable software engineer with over 5 years of experience in developing robust web and decentralized applications. Proficient in React, Next.js, TypeScript, GraphQL, and Redux, with a proven track record of delivering solutions and enhancing user engagement. Adept at collaborating with cross-functional teams to drive project success and innovate new features.',
   socialLinks: [
     {
       name: 'GitHub',
@@ -30,18 +30,18 @@ const SKILL_SET: SkillSetData = {
     'TypeScript',
     'React',
     'GraphQL',
-    'Redux',
-    'Next.js',
-    'Ethers.js',
+    'Zustand',
+    'NextJS',
+    'EthersJS',
   ],
   familiar: [
-    'Express.js',
+    'ExpressJS',
     'MongoDB',
     'SQL',
-    'Gatsby.js',
+    'GatsbyJS',
     'Heroku',
-    'Konva.js',
-    'Babylon.js',
+    'KonvaJS',
+    'BabylonJS',
     'Docker',
   ],
   knowledge: [
@@ -65,15 +65,15 @@ const WORK_EXPERIENCE: ExperienceData<Company> = {
         details: [
           {
             title:
-              'Developing lossless lottery dapp using React, TypeScript, Next.js, and ethers.js',
+              'Developed a lossless lottery dapp using React, TypeScript, NextJS, and EthersJS, achieving 1.35M USD TVL',
           },
           {
             title:
-              'Add NFT staking feature and improve web performance to web3 lending platform',
+              'Added NFT staking feature and optimized web performance, leading to a increase in user engagement and satisfaction on the web3 lending platform',
           },
           {
             title:
-              'Developing NFT marketplace, Liquid staking platform using React, TypeScript, Next.js, and ethers.js',
+              'Developed token staking feature on NFT marketplace which achieved TVL of USD 745K',
           },
         ],
       },
@@ -89,7 +89,11 @@ const WORK_EXPERIENCE: ExperienceData<Company> = {
         details: [
           {
             title:
-              'Developing web3 application using React, TypeScript, and Web3.js',
+              'Developed decentralized borrowing protocol using React, NextJS TypeScript, and Web3JS',
+          },
+          {
+            title:
+              'Developed a liquid staking protocol which achieved a TVL of USD 13M',
           },
         ],
       },
@@ -106,15 +110,15 @@ const WORK_EXPERIENCE: ExperienceData<Company> = {
         details: [
           {
             title:
-              'Developing web application using React, TypeScript, PostCSS, GraphQL, and MongoDB',
+              'Developed a B2B web application using React, TypeScript, PostCSS, GraphQL, and MongoDB, enhancing system performance and user interface, resulting in improved customer satisfaction',
           },
           {
             title:
-              'Communicating with UI/UX designers, PM, and back-end team to clarify the requirement',
+              'Collaborated with UI/UX designers, PM, and back-end team to clarify requirements, streamlining the development process and ensuring alignment across teams',
           },
           {
             title:
-              'Planning sprint tasks with front-end team and ensure the tasks are delivered smoothly',
+              'Planned and managed sprint tasks with the front-end team, ensuring timely delivery and improving team productivity through effective task management and coordination',
           },
         ],
       },
@@ -131,25 +135,19 @@ const WORK_EXPERIENCE: ExperienceData<Company> = {
         details: [
           {
             title:
-              'Developing 2D image labeling system using TypeScript, React.js, Apollo GraphQL, Next.js, and canvas 2d library Konva.js',
+              'Developed a 2D image labeling system using TypeScript, ReactJS, Apollo GraphQL, NextJS, and KonvaJS, improving annotation accuracy and efficiency',
           },
           {
             title:
-              'Developing medical image labeling system for CT and MRI images labeling',
+              'Developed a medical image labeling system for CT and MRI images, enhancing the precision and speed of medical annotations',
           },
           {
             title:
-              'Developing LiDAR point cloud labeling system using WebGL framework Babylon.js',
+              'Developed a LiDAR point cloud labeling system using BabylonJS, enabling more accurate and efficient 3D data labeling',
           },
-          // { title: 'Communicate with back-end engineers about API design' },
-          // { title: 'Providing web app internationalization by i18next for global users' },
-          // {
-          //   title:
-          //     'Communicate with data scientists about UX and APIs for label assistance tools implemented using computer vision and machine learning',
-          // },
           {
             title:
-              'Developing Microsoft Vision on Edge solution with Typescript, React.js, Redux, Redux-Thunk, Konva.js, and Fluent UI',
+              'Developed a Microsoft Vision on Edge solution using TypeScript, ReactJS, Redux, Redux-Thunk, KonvaJS, and Fluent UI, improving edge computing capabilities for image processing',
             url: 'https://github.com/Azure-Samples/azure-intelligent-edge-patterns',
           },
         ],
