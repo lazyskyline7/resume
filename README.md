@@ -1,3 +1,3 @@
 # Resume
 
-<https://lancehsu.github.io/resume/>
+<https://lazyskyline7.github.io/resume/>

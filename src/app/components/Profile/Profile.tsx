@@ -26,7 +26,7 @@ const Profile: FC<ProfileProps> = ({ profile }) => {
   return (
     <div>
       <Bios profile={profile} />
-      <div className="flex flex-row lg:flex-col gap-1 lg:gap-2 mt-1">
+      <div className="flex flex-row md:flex-col gap-1 lg:gap-2 mt-1">
         {profile.socialLinks.map((e) => {
           const Icon = SOCIAL_LINK_ICON_MAP[e.name];
           return (
@@ -39,7 +39,7 @@ const Profile: FC<ProfileProps> = ({ profile }) => {
               onClick={() => handleClick(e.name)}
             >
               <Icon className="size-6" />
-              <div className="font-medium text-cyan-600 hidden lg:block">
+              <div className="font-medium text-cyan-600 hidden md:block">
                 {e.link}
               </div>
             </a>

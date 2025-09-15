@@ -1,6 +1,6 @@
 'use client';
 import { FC, useCallback, useEffect, useSyncExternalStore } from 'react';
-import { BsSun, BsMoon } from 'react-icons/bs';
+import { MdDarkMode, MdLightMode } from 'react-icons/md';
 import { event } from '@/ga';
 
 type Theme = 'light' | 'dark';
@@ -64,12 +64,12 @@ const ThemeSwitcher: FC = () => {
     }
   }, [theme]);
   return theme === 'dark' ? (
-    <BsMoon
+    <MdLightMode
       className="absolute top-1 right-1 print:hidden cursor-pointer"
       onClick={handleToggle}
     />
   ) : (
-    <BsSun
+    <MdDarkMode
       className="absolute top-1 right-1 print:hidden cursor-pointer"
       onClick={handleToggle}
     />

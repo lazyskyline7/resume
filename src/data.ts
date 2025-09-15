@@ -12,11 +12,11 @@ const PROFILE: ProfileData = {
   name: 'Kung-Ling Hsu',
   image: './profile.png',
   summary:
-    'A detail-oriented software engineer with 5+ years of experience in web and decentralized applications. Proficient in React, NextJS, TypeScript, GraphQL, and Zustand, with a track record of delivering efficient and scalable solutions and enhancing user engagement. Skilled in collaborating with cross-functional teams to drive project success.',
+    'A detail-oriented software engineer with 6+ years of experience in web and decentralized applications. Proficient in React, NextJS, TypeScript, GraphQL, and Zustand, with a track record of delivering efficient and scalable solutions and enhancing user engagement. Skilled in collaborating with cross-functional teams to drive project success.',
   socialLinks: [
     {
       name: 'GitHub',
-      link: 'https://github.com/lancehsu',
+      link: 'https://github.com/lazyskyline7',
     },
     { name: 'LinkedIn', link: 'https://www.linkedin.com/in/klhsu' },
     { name: 'Email', link: 'lancehsu12@gmail.com' },
@@ -38,8 +38,7 @@ const SKILL_SET: SkillSetData = {
     'ExpressJS',
     'MongoDB',
     'SQL',
-    'GatsbyJS',
-    'Heroku',
+    'Redux',
     'KonvaJS',
     'BabylonJS',
     'Docker',
@@ -47,7 +46,6 @@ const SKILL_SET: SkillSetData = {
   knowledge: [
     'Java',
     'Python',
-    'Redis',
     'machine learning',
     'image processing',
     'computer graphic',
@@ -56,13 +54,19 @@ const SKILL_SET: SkillSetData = {
 
 const WORK_EXPERIENCE: ExperienceData<Company> = {
   cronos: {
-    position: 'Software Developer',
+    position: 'Frontend Developer',
     location: 'Taipei, Taiwan',
     from: 'Nov 2022',
-    to: 'Present',
+    to: 'Mar 2025',
     content: [
       {
         details: [
+          {
+            title: 'Built metrics, figures, and alarms on the Sentio platform using Node.js by tracing on-chain events and data through Sentio SDK'
+          },
+          {
+            title: 'Integrated reward allocation mechanism to incentivize user onboarding to the zkEVM chain',
+          },
           {
             title:
               'Developed a lossless lottery dapp using React, TypeScript, NextJS, and EthersJS, achieving 1.35M USD TVL',
@@ -80,7 +84,7 @@ const WORK_EXPERIENCE: ExperienceData<Company> = {
     ],
   },
   cdc: {
-    position: 'Software Developer',
+    position: 'Frontend Developer',
     location: 'Taipei, Taiwan',
     from: 'Mar 2022',
     to: 'Nov 2022',
@@ -89,7 +93,7 @@ const WORK_EXPERIENCE: ExperienceData<Company> = {
         details: [
           {
             title:
-              'Developed decentralized borrowing protocol using React, NextJS TypeScript, and Web3JS',
+              'Developed decentralized borrowing protocol using React, NextJS, TypeScript, and Web3JS',
           },
           {
             title:
@@ -100,7 +104,7 @@ const WORK_EXPERIENCE: ExperienceData<Company> = {
     ],
   },
   appier: {
-    position: 'Software Engineer',
+    position: 'Software Engineer, Frontend Development',
     location: 'Taipei, Taiwan',
     from: 'Oct 2020',
     to: 'Mar 2022',
@@ -110,7 +114,7 @@ const WORK_EXPERIENCE: ExperienceData<Company> = {
         details: [
           {
             title:
-              'Developed a B2B web application using React, TypeScript, PostCSS, GraphQL, and MongoDB, enhancing system performance and user interface, resulting in improved customer satisfaction',
+              'Built a Customer Data Platform using React, TypeScript, Node.js, GraphQL, and MongoDB, with a strong focus on backend data processing and API integration, resulting in improved performance and customer satisfaction',
           },
           {
             title:
@@ -125,7 +129,7 @@ const WORK_EXPERIENCE: ExperienceData<Company> = {
     ],
   },
   linker: {
-    position: 'Software Engineer',
+    position: 'Frontend Engineer',
     location: 'Taipei, Taiwan',
     from: 'Feb 2019',
     to: 'Aug 2020',
@@ -135,7 +139,7 @@ const WORK_EXPERIENCE: ExperienceData<Company> = {
         details: [
           {
             title:
-              'Developed a 2D image labeling system using TypeScript, ReactJS, Apollo GraphQL, NextJS, and KonvaJS, improving annotation accuracy and efficiency',
+              'Developed a 2D image labeling system using TypeScript, React, Apollo GraphQL, NextJS, and KonvaJS, improving annotation accuracy and efficiency',
           },
           {
             title:
@@ -147,7 +151,7 @@ const WORK_EXPERIENCE: ExperienceData<Company> = {
           },
           {
             title:
-              'Developed a Microsoft Vision on Edge solution using TypeScript, ReactJS, Redux, Redux-Thunk, KonvaJS, and Fluent UI, improving edge computing capabilities for image processing',
+              'Developed a Microsoft Vision on Edge solution using TypeScript, React, Redux, Redux-Thunk, KonvaJS, and Fluent UI, improving edge computing capabilities for image processing',
             url: 'https://github.com/Azure-Samples/azure-intelligent-edge-patterns',
           },
         ],

@@ -6,15 +6,17 @@ import TimeLineList from './components/TimeLineList';
 import DATA from '@/data';
 import { FC } from 'react';
 
+const { profile, skillSet, workExperience, education } = DATA;
+
 const Home: FC = () => {
   return (
     <div className="relative dark:bg-slate-800 dark:text-slate-50">
       <div className="max-w-[1200px] w-full m-auto">
-        <div className="flex flex-col gap-1 py-4 px-8">
-          <Profile profile={DATA.profile} />
-          <SkillSet skillSet={DATA.skillSet} />
-          <TimeLineList title="Work Experience" list={DATA.workExperience} />
-          <TimeLineList title="Education" list={DATA.education} />
+        <div className="flex flex-col gap-4 py-4 px-8">
+          <Profile profile={profile} />
+          <SkillSet skillSet={skillSet} />
+          <TimeLineList title="Work Experience" list={workExperience} />
+          <TimeLineList title="Education" list={education} />
         </div>
       </div>
       <ThemeSwitcher />
