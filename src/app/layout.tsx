@@ -16,6 +16,9 @@ export default function RootLayout({
     <html lang="en">
       <body>
         {children}
+        <Script async
+          src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID}`}
+        />
         <Script id="gtag">
           {`
         window.dataLayer = window.dataLayer || [];
@@ -24,10 +27,6 @@ export default function RootLayout({
         gtag('config', '${process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID}');
         `}
         </Script>
-        <Script
-          strategy="afterInteractive"
-          src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID}`}
-        />
       </body>
     </html>
   );
