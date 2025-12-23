@@ -21,22 +21,17 @@ const PrintSwitcher: FC = () => {
     }
   }, [enablePrint]);
 
-  return enablePrint ? (
-    <MdOutlinePrint
-      className="absolute bottom-1 left-1 print:hidden"
+  return (
+    <div
+      className="absolute bottom-1.5 left-1.5 print:hidden"
       onClick={handleToggle}
-      role="button"
-      aria-label="Disable printing"
-      tabIndex={0}
-    />
-  ) : (
-    <MdOutlinePrintDisabled
-      className="absolute bottom-1 left-1 print:hidden"
-      onClick={handleToggle}
-      role="button"
-      aria-label="Enable printing"
-      tabIndex={0}
-    />
+    >
+      {enablePrint ? (
+        <MdOutlinePrint role="button" aria-label="Disable printing" />
+      ) : (
+        <MdOutlinePrintDisabled role="button" aria-label="Enable printing" />
+      )}
+    </div>
   );
 };
 

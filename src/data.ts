@@ -19,7 +19,7 @@ const PROFILE: ProfileData = {
       link: 'https://github.com/lazyskyline7',
     },
     { name: 'LinkedIn', link: 'https://www.linkedin.com/in/klhsu' },
-    { name: 'Email', link: 'lancehsu12@gmail.com' },
+    { name: 'Email', link: 'lazy.skyline7@gmail.com' },
   ],
   target: 'Front-end/Full-stack engineer',
 } as const;
@@ -32,7 +32,7 @@ const SKILL_SET: SkillSetData = {
     'GraphQL',
     'Zustand',
     'NextJS',
-    'EthersJS',
+    'Web3',
   ],
   familiar: [
     'ExpressJS',
@@ -62,22 +62,24 @@ const WORK_EXPERIENCE: ExperienceData<Company> = {
       {
         details: [
           {
-            title: 'Built metrics, figures, and alarms on the Sentio platform using Node.js by tracing on-chain events and data through Sentio SDK'
-          },
-          {
-            title: 'Integrated reward allocation mechanism to incentivize user onboarding to the zkEVM chain',
-          },
-          {
             title:
               'Developed a lossless lottery dapp using React, TypeScript, NextJS, and EthersJS, achieving 1.35M USD TVL',
           },
           {
             title:
-              'Added NFT staking feature and optimized web performance, leading to a increase in user engagement and satisfaction on the web3 lending platform',
+              'Added NFT staking feature and optimized web performance, leading to an increase in user engagement and satisfaction on the web3 lending platform',
           },
           {
             title:
               'Developed token staking feature on NFT marketplace which achieved TVL of USD 745K',
+          },
+          {
+            title:
+              'Built metrics, figures, and alarms on the Sentio platform using Node.js by tracing on-chain events and data through Sentio SDK',
+          },
+          {
+            title:
+              'Integrated reward allocation mechanism to incentivize user onboarding to the zkEVM chain',
           },
         ],
       },
