@@ -16,7 +16,8 @@ export default function RootLayout({
     <html lang="en">
       <body>
         {children}
-        <Script async
+        <Script
+          async
           src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID}`}
         />
         <Script id="gtag">
