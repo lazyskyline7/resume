@@ -13,12 +13,13 @@ export type ResumeData = {
 };
 
 export type SocialLinkType = 'LinkedIn' | 'GitHub' | 'Email';
+export type SocialLink = { name: SocialLinkType; link: string };
 export type ProfileData = {
   name: string;
   image: string;
   summary: string;
   target: string;
-  socialLinks: ReadonlyArray<{ name: SocialLinkType; link: string }>;
+  socialLinks: ReadonlyArray<SocialLink>;
 };
 
 export type SkillLevel = 'proficiency' | 'familiar' | 'knowledge';

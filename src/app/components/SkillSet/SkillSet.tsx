@@ -8,8 +8,8 @@ interface SkillSetProps {
 }
 const SkillSet: FC<SkillSetProps> = ({ skillSet }) => (
   <div>
-    <Title>Skills</Title>
-    <div className="flex lg:gap-1 gap-3 flex-col lg:flex-row">
+    <div className="text-xs font-bold uppercase tracking-wider text-slate-400 mb-4 dark:text-slate-500">Skills</div>
+    <div className="flex flex-col gap-6">
       {Object.entries(skillSet).map(([skillType, skills], i) => (
         <SkillList key={i} level={skillType as SkillLevel} skills={skills} />
       ))}

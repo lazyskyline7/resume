@@ -1,38 +1,58 @@
 import React, { FC } from 'react';
 import type { ExperienceInfo } from '@/types';
 import InfoContent from './InfoContent';
-import { GoDot } from 'react-icons/go';
 
 interface TimeLineItemProps {
   title: string;
   info: ExperienceInfo;
+  compact?: boolean;
 }
-const TimeLineItem: FC<TimeLineItemProps> = ({ title, info }) => (
-  <div className="mb-1 break-inside-avoid">
-    <div className="flex justify-between gap-8">
-      <div className="flex items-center gap-0.5">
-        <GoDot />
-        <div className="mb-0.5 font-semibold text-sm lg:text-base">
-          {title}, {info.location}
-          {info.position && ` - ${info.position}`}
+const TimeLineItem: FC<TimeLineItemProps> = ({ title, info, compact }) => {
+  if (compact) {
+    return (
+      <div className="mb-4 last:mb-0 break-inside-avoid">
+        <div className="font-semibold text-sm">{title}</div>
+        <div className="text-xs text-slate-500 dark:text-slate-400 mb-0.5">
+          {info.from} - {info.to}
+        </div>
+        <div className="text-xs">{info.degree}</div>
+      </div>
+    );
+  }
+
+  return (
+    <div className="mb-8 last:mb-0 break-inside-avoid relative pl-0">
+      <div className="flex flex-col sm:flex-row sm:justify-between sm:items-baseline gap-1 mb-2">
+        <h3 className="text-lg font-bold text-slate-800 dark:text-slate-100 leading-tight">
+          {title}
+          {info.position && (
+            <span className="text-base font-medium text-slate-600 dark:text-slate-400 block sm:inline sm:ml-2">
+               — {info.position}
+            </span>
+          )}
+        </h3>
+        <div className="text-sm font-mono text-slate-500 whitespace-nowrap shrink-0">
+          {info.from} — {info.to}
         </div>
       </div>
-      <div className="text-xs lg:text-sm">
-        {info.from} - {info.to}
+      
+      <div className="text-sm text-slate-600 dark:text-slate-300 mb-2 italic">
+          {info.location}
+          {info.degree && ` • ${info.degree}`}
+      </div>
+
+      <div className="text-sm leading-relaxed text-slate-700 dark:text-slate-300 space-y-2">
+        {info.content?.map((item, i) => (
+          <InfoContent
+            key={i}
+            title={item.title}
+            url={item.url}
+            details={item.details}
+          />
+        ))}
       </div>
     </div>
-    <div className="ml-2 text-sm">
-      <div className="ml-2 opacity-80 print:opacity-100">{info.degree}</div>
-      {info.content?.map((item, i) => (
-        <InfoContent
-          key={i}
-          title={item.title}
-          url={item.url}
-          details={item.details}
-        />
-      ))}
-    </div>
-  </div>
-);
+  );
+};
 
 export default TimeLineItem;

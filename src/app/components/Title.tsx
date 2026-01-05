@@ -4,9 +4,9 @@ interface TitleProps {
   children: string;
 }
 const Title: FC<TitleProps> = ({ children }) => (
-  <div className="text-xl lg:text-2xl mb-1.5 border-b border-slate-200 dark:border-slate-700 print:border-slate-300 pb-1 font-bold">
+  <h2 className="text-xl font-bold mb-4 uppercase tracking-widest text-slate-900 dark:text-slate-100 border-b-2 border-slate-900 dark:border-slate-100 pb-1 w-fit">
     {children}
-  </div>
+  </h2>
 );
 
 export default Title;

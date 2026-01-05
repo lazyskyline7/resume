@@ -6,9 +6,18 @@ interface BiosProps {
   profile: ProfileData;
 }
 const Bios: FC<BiosProps> = ({ profile }) => (
-  <div>
-    <div className="text-2xl lg:text-3xl mb-2 font-bold print:text-4xl">{profile.name}</div>
-    <div className="leading-relaxed">{profile.summary}</div>
+  <div className="flex flex-col gap-4">
+    <div className="flex flex-col">
+       <h1 className="text-4xl lg:text-5xl font-extrabold tracking-tight text-slate-900 dark:text-slate-50 mb-2 uppercase">
+         {profile.name}
+       </h1>
+       <div className="text-xl text-cyan-600 dark:text-cyan-400 font-medium">
+          {profile.target}
+       </div>
+    </div>
+    <div className="leading-relaxed text-slate-600 dark:text-slate-300 max-w-2xl text-lg">
+      {profile.summary}
+    </div>
   </div>
 );
 
