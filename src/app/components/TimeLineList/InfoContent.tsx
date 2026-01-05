@@ -29,10 +29,10 @@ const InfoContent: FC<Content> = ({ title, url, details }) => {
                 rel="noopener noreferrer"
                 onClick={() => handleClick(detail.url)}
               >
-                <div className="text-cyan-600 opacity-80">{detail.title}</div>
+                <div className="text-cyan-600 opacity-80 print:opacity-100">{detail.title}</div>
               </a>
             ) : (
-              <div className="opacity-80">{detail.title}</div>
+              <div className="opacity-80 print:opacity-100">{detail.title}</div>
             )}
           </li>
         ))}

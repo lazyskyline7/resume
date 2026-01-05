@@ -23,14 +23,17 @@ const PrintSwitcher: FC = () => {
 
   return (
     <div
-      className="absolute bottom-1.5 left-1.5 print:hidden"
+      className="fixed bottom-4 left-4 print:hidden cursor-pointer p-2 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 shadow-md hover:shadow-lg hover:bg-slate-200 dark:hover:bg-slate-700 transition-all duration-200 group active:scale-95"
       onClick={handleToggle}
+      title={enablePrint ? "Disable printing mode" : "Enable printing mode"}
     >
-      {enablePrint ? (
-        <MdOutlinePrint role="button" aria-label="Disable printing" />
-      ) : (
-        <MdOutlinePrintDisabled role="button" aria-label="Enable printing" />
-      )}
+      <div className="transition-transform duration-300 group-hover:scale-110 group-active:scale-90">
+        {enablePrint ? (
+          <MdOutlinePrint size={24} role="button" aria-label="Disable printing" />
+        ) : (
+          <MdOutlinePrintDisabled size={24} role="button" aria-label="Enable printing" />
+        )}
+      </div>
     </div>
   );
 };

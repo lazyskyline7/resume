@@ -8,7 +8,7 @@ interface TimeLineItemProps {
   info: ExperienceInfo;
 }
 const TimeLineItem: FC<TimeLineItemProps> = ({ title, info }) => (
-  <div className="mb-1">
+  <div className="mb-1 break-inside-avoid">
     <div className="flex justify-between gap-8">
       <div className="flex items-center gap-0.5">
         <GoDot />
@@ -22,7 +22,7 @@ const TimeLineItem: FC<TimeLineItemProps> = ({ title, info }) => (
       </div>
     </div>
     <div className="ml-2 text-sm">
-      <div className="ml-2 opacity-80">{info.degree}</div>
+      <div className="ml-2 opacity-80 print:opacity-100">{info.degree}</div>
       {info.content?.map((item, i) => (
         <InfoContent
           key={i}

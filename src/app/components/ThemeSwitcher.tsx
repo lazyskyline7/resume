@@ -63,16 +63,20 @@ const ThemeSwitcher: FC = () => {
       else document.documentElement.classList.remove('dark');
     }
   }, [theme]);
-  return theme === 'dark' ? (
-    <MdLightMode
-      className="absolute top-1 right-1 print:hidden cursor-pointer"
+  const iconClasses = "size-6 transition-all duration-300 group-hover:rotate-12 group-active:scale-90";
+
+  return (
+    <div 
+      className="fixed top-4 right-4 print:hidden cursor-pointer p-2 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 shadow-md hover:shadow-lg hover:bg-slate-200 dark:hover:bg-slate-700 transition-all duration-200 group active:scale-95"
       onClick={handleToggle}
-    />
-  ) : (
-    <MdDarkMode
-      className="absolute top-1 right-1 print:hidden cursor-pointer"
-      onClick={handleToggle}
-    />
+      title={theme === 'dark' ? "Switch to light mode" : "Switch to dark mode"}
+    >
+      {theme === 'dark' ? (
+        <MdLightMode className={iconClasses} />
+      ) : (
+        <MdDarkMode className={iconClasses} />
+      )}
+    </div>
   );
 };
 

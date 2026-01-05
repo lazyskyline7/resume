@@ -17,3 +17,15 @@ body {
     text-wrap: balance;
   }
 }
+
+@media print {
+  body {
+    background: white !important;
+    color: #0f172a !important;
+  }
+  
+  * {
+    print-color-adjust: exact !important;
+    -webkit-print-color-adjust: exact !important;
+  }
+}

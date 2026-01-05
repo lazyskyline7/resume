@@ -19,7 +19,7 @@ const SkillList: FC<SkillListProps> = ({ level, skills }) => (
       {skills.map((skill, i) => (
         <div
           key={i}
-          className="rounded-full bg-cyan-500 m-0.5 px-2 py-1 text-center w-fit text-slate-50 text-sm"
+          className="rounded-full bg-cyan-500 m-0.5 px-2 py-1 text-center w-fit text-slate-50 text-sm print:bg-transparent print:text-slate-900 print:border print:border-gray-500"
         >
           {skill}
         </div>
