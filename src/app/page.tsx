@@ -14,7 +14,7 @@ const Home: FC = () => {
       <div className="max-w-[1000px] w-full m-auto bg-white dark:bg-slate-800 shadow-xl dark:shadow-none min-h-screen print:min-h-0 print:shadow-none print:max-w-none print:w-full">
         
         {/* Header - Full Width */}
-        <header className="p-6 md:p-12 border-b border-slate-100 dark:border-slate-700 print:p-8 print:border-slate-200">
+        <header className="p-6 md:p-12 border-b border-slate-100 dark:border-slate-700 print:p-6 print:border-slate-200">
           <Bios profile={profile} />
         </header>
 
@@ -40,7 +40,7 @@ const Home: FC = () => {
           </aside>
 
           {/* Main Content */}
-          <main className="p-6 md:p-12 flex flex-col gap-10 print:p-8 print:gap-6">
+          <main className="p-6 md:p-12 flex flex-col gap-10 print:p-6 print:gap-6">
             <TimeLineList title="Work Experience" list={workExperience} />
           </main>
 

@@ -44,8 +44,8 @@ const SKILL_SET: SkillSetData = {
     'Docker',
   ],
   knowledge: [
-    'Java',
     'Python',
+    'Java',
     'machine learning',
     'image processing',
     'computer graphic',

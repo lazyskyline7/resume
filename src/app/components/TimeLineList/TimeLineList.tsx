@@ -17,7 +17,7 @@ function TimeLineList<T extends College | Company>({
   return (
     <div>
       {compact ? (
-        <div className="text-xs font-bold uppercase tracking-wider text-slate-400 mb-4 dark:text-slate-500">{title}</div>
+        <div className="text-xs font-bold uppercase tracking-wider text-slate-400 mb-4 dark:text-slate-500 print:break-after-avoid">{title}</div>
       ) : (
         <Title>{title}</Title>
       )}

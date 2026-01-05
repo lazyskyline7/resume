@@ -12,7 +12,7 @@ interface SkillListProps {
   skills: string[];
 }
 const SkillList: FC<SkillListProps> = ({ level, skills }) => (
-  <div className="flex-1">
+  <div className="flex-1 break-inside-avoid">
     <div className="font-semibold text-sm mb-2 text-slate-700 dark:text-slate-200 capitalize">{SKILL_LEVEL_MAP[level]}</div>
     <div className="flex flex-wrap gap-1.5">
       {skills.map((skill, i) => (

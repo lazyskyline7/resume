@@ -13,7 +13,7 @@ const TimeLineItem: FC<TimeLineItemProps> = ({ title, info, compact }) => {
       <div className="mb-6 last:mb-0 break-inside-avoid relative pl-4 border-l border-slate-200 dark:border-slate-700 last:border-l-0">
         <div className="absolute -left-[3px] top-1.5 w-1.5 h-1.5 rounded-full bg-slate-300 dark:bg-slate-600" />
         <div className="font-semibold text-sm leading-none mb-1">{title}</div>
-        <div className="text-[10px] font-mono text-slate-400 dark:text-slate-500 mb-1">
+        <div className="text-[11px] font-mono text-slate-400 dark:text-slate-500 mb-1">
           {info.from} - {info.to}
         </div>
         <div className="text-xs text-slate-600 dark:text-slate-400">{info.degree}</div>
@@ -22,7 +22,7 @@ const TimeLineItem: FC<TimeLineItemProps> = ({ title, info, compact }) => {
   }
 
   return (
-    <div className="mb-0 pb-10 last:pb-0 break-inside-avoid relative pl-8 group">
+    <div className="mb-0 pb-10 print:pb-6 last:pb-0 break-inside-avoid relative pl-8 group">
       {/* Timeline Line */}
       <div className="absolute left-0 top-2 bottom-0 w-px bg-slate-200 dark:bg-slate-700 group-last:bg-transparent" />
       
@@ -53,7 +53,7 @@ const TimeLineItem: FC<TimeLineItemProps> = ({ title, info, compact }) => {
           )}
       </div>
 
-      <div className="text-sm leading-relaxed text-slate-700 dark:text-slate-300 space-y-2">
+      <div className="text-[13px] leading-relaxed text-slate-700 dark:text-slate-300 space-y-2">
         {info.content?.map((item, i) => (
           <InfoContent
             key={i}

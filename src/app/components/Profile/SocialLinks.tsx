@@ -44,7 +44,7 @@ const SocialLinks: FC<SocialLinksProps> = ({ links }) => {
             <div className="p-2 bg-slate-100 dark:bg-slate-700 rounded-full group-hover:bg-primary-50 dark:group-hover:bg-slate-600 transition-colors print:p-0 print:bg-transparent">
               <Icon className="size-5 print:size-4" />
             </div>
-            <div className="text-sm break-all print:text-[10px] print:leading-tight">
+            <div className="text-sm break-all print:text-[11px] print:leading-tight">
               <span className="print:hidden">{e.name === 'Email' ? e.link : e.name}</span>
               <span className="hidden print:inline">{formatDisplayLink(e.link, e.name)}</span>
             </div>
