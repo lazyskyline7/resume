@@ -23,24 +23,30 @@ const SocialLinks: FC<SocialLinksProps> = ({ links }) => {
     });
   }, []);
 
+  const formatDisplayLink = (link: string, name: SocialLinkType) => {
+    if (name === 'Email') return link;
+    return link.replace(/^https?:\/\/(www\.)?/, '');
+  };
+
   return (
-    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-1 gap-3 mt-4">
+    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-1 gap-3 mt-4 print:grid-cols-1 print:gap-1">
       {links.map((e) => {
         const Icon = SOCIAL_LINK_ICON_MAP[e.name];
         return (
           <a
             key={e.name}
-            className="flex items-center gap-3 text-slate-600 dark:text-slate-400 hover:text-cyan-600 dark:hover:text-cyan-400 transition-colors no-underline group"
+            className="flex items-center gap-3 text-slate-600 dark:text-slate-400 hover:text-cyan-600 dark:hover:text-cyan-400 transition-colors no-underline group print:text-slate-900"
             href={e.link}
             target="_blank"
             rel="noopener noreferrer"
             onClick={() => handleClick(e.name)}
           >
-            <div className="p-2 bg-slate-100 dark:bg-slate-700 rounded-full group-hover:bg-cyan-50 dark:group-hover:bg-slate-600 transition-colors">
-              <Icon className="size-5" />
+            <div className="p-2 bg-slate-100 dark:bg-slate-700 rounded-full group-hover:bg-cyan-50 dark:group-hover:bg-slate-600 transition-colors print:p-0 print:bg-transparent">
+              <Icon className="size-5 print:size-4" />
             </div>
-            <div className="text-sm break-all print:text-black">
-              {e.name === 'Email' ? e.link : e.name}
+            <div className="text-sm break-all print:text-[10px] print:leading-tight">
+              <span className="print:hidden">{e.name === 'Email' ? e.link : e.name}</span>
+              <span className="hidden print:inline">{formatDisplayLink(e.link, e.name)}</span>
             </div>
           </a>
         );
