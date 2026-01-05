@@ -35,13 +35,13 @@ const SocialLinks: FC<SocialLinksProps> = ({ links }) => {
         return (
           <a
             key={e.name}
-            className="flex items-center gap-3 text-slate-600 dark:text-slate-400 hover:text-cyan-600 dark:hover:text-cyan-400 transition-colors no-underline group print:text-slate-900"
+            className="flex items-center gap-3 text-slate-600 dark:text-slate-400 hover:text-primary-600 dark:hover:text-primary-400 transition-colors no-underline group print:text-slate-900"
             href={e.link}
             target="_blank"
             rel="noopener noreferrer"
             onClick={() => handleClick(e.name)}
           >
-            <div className="p-2 bg-slate-100 dark:bg-slate-700 rounded-full group-hover:bg-cyan-50 dark:group-hover:bg-slate-600 transition-colors print:p-0 print:bg-transparent">
+            <div className="p-2 bg-slate-100 dark:bg-slate-700 rounded-full group-hover:bg-primary-50 dark:group-hover:bg-slate-600 transition-colors print:p-0 print:bg-transparent">
               <Icon className="size-5 print:size-4" />
             </div>
             <div className="text-sm break-all print:text-[10px] print:leading-tight">

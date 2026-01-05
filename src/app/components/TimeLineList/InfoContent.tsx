@@ -29,7 +29,7 @@ const InfoContent: FC<Content> = ({ title, url, details }) => {
                 rel="noopener noreferrer"
                 onClick={() => handleClick(detail.url)}
               >
-                <div className="text-cyan-600 opacity-80 print:opacity-100">{detail.title}</div>
+                <div className="text-primary-600 opacity-80 print:opacity-100">{detail.title}</div>
               </a>
             ) : (
               <div className="opacity-80 print:opacity-100">{detail.title}</div>
@@ -62,7 +62,7 @@ const InfoTitle: FC<InfoTitleProps> = ({ title, url }) => {
       href={url}
       onClick={() => handleClick(url)}
     >
-      <div className="font-medium m-0.5 text-cyan-600">{title}</div>
+      <div className="font-medium m-0.5 text-primary-600">{title}</div>
     </a>
   ) : (
     <div className="font-medium m-0.5">{title}</div>

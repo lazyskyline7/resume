@@ -14,11 +14,11 @@ interface SkillListProps {
 const SkillList: FC<SkillListProps> = ({ level, skills }) => (
   <div className="flex-1">
     <div className="font-semibold text-sm mb-2 text-slate-700 dark:text-slate-200 capitalize">{SKILL_LEVEL_MAP[level]}</div>
-    <div className="flex flex-wrap gap-1">
+    <div className="flex flex-wrap gap-1.5">
       {skills.map((skill, i) => (
         <div
           key={i}
-          className="rounded px-2 py-0.5 bg-slate-200 dark:bg-slate-700 text-slate-700 dark:text-slate-300 text-xs font-medium print:bg-transparent print:border print:border-slate-300"
+          className="rounded px-2 py-0.5 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-300 text-[11px] font-mono shadow-sm print:bg-transparent print:border-slate-300"
         >
           {skill}
         </div>

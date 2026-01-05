@@ -21,7 +21,7 @@ const Home: FC = () => {
         <div className="grid grid-cols-1 md:grid-cols-[280px_1fr] print:grid-cols-[240px_1fr]">
           
           {/* Sidebar */}
-          <aside className="bg-slate-50/50 dark:bg-slate-900/20 p-6 md:p-8 flex flex-col gap-8 border-b md:border-b-0 md:border-r border-slate-100 dark:border-slate-700 print:bg-slate-50 print:text-black print:border-r print:border-b-0 print:p-6 print-bg-slate">
+          <aside className="bg-slate-50/50 dark:bg-slate-900/20 p-6 md:p-8 flex flex-col gap-8 border-b md:border-b-0 md:border-r border-slate-100 dark:border-slate-700 print:bg-slate-50 print:text-black print:border-r print:border-b-0 print:p-6 print-bg-slate bg-[radial-gradient(#cbd5e1_1px,transparent_1px)] dark:bg-[radial-gradient(#1e293b_1px,transparent_1px)] [background-size:20px_20px] print:bg-none">
              {/* Contact */}
              <div>
                 <div className="text-xs font-bold uppercase tracking-wider text-slate-400 mb-4 dark:text-slate-500 print:text-slate-600 print:mb-2">Contact</div>
