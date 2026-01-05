@@ -8,10 +8,10 @@ interface BiosProps {
 const Bios: FC<BiosProps> = ({ profile }) => (
   <div className="flex flex-col gap-4">
     <div className="flex flex-col">
-       <h1 className="text-4xl lg:text-5xl font-extrabold tracking-tight text-slate-900 dark:text-slate-50 mb-2 uppercase">
+       <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-slate-900 dark:text-slate-50 mb-2 uppercase">
          {profile.name}
        </h1>
-       <div className="text-xl text-cyan-600 dark:text-cyan-400 font-medium">
+       <div className="text-lg sm:text-xl text-cyan-600 dark:text-cyan-400 font-medium">
           {profile.target}
        </div>
     </div>

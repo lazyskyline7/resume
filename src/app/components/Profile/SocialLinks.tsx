@@ -24,7 +24,7 @@ const SocialLinks: FC<SocialLinksProps> = ({ links }) => {
   }, []);
 
   return (
-    <div className="flex flex-col gap-2 mt-4">
+    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-1 gap-3 mt-4">
       {links.map((e) => {
         const Icon = SOCIAL_LINK_ICON_MAP[e.name];
         return (

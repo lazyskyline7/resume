@@ -19,11 +19,20 @@ body {
 }
 
 @media print {
+  @page {
+    margin: 15mm;
+  }
+
   body {
     background: white !important;
     color: #0f172a !important;
   }
   
+  .print-bg-slate {
+    background-color: #f8fafc !important;
+    -webkit-print-color-adjust: exact;
+  }
+
   * {
     print-color-adjust: exact !important;
     -webkit-print-color-adjust: exact !important;
