@@ -14,13 +14,39 @@ export const metadata: Metadata = {
   description: 'resume',
 };
 
+const themeInitScript = `
+  (function() {
+    try {
+      var theme = localStorage.getItem('theme');
+      var printMode = localStorage.getItem('printMode');
+      
+      if (theme === 'dark' || (!theme && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+        document.documentElement.classList.add('dark');
+      } else {
+        document.documentElement.classList.remove('dark');
+      }
+      
+      if (printMode === 'true') {
+        document.documentElement.classList.remove('print:hidden');
+      } else {
+        document.documentElement.classList.add('print:hidden');
+      }
+      
+      document.documentElement.dataset.themeLoaded = 'true';
+    } catch (e) {}
+  })();
+`;
+
 export default function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
+      <head>
+        <script dangerouslySetInnerHTML={{ __html: themeInitScript }} />
+      </head>
       <body className={`${inter.variable} ${jetbrainsMono.variable} font-sans`}>
         {children}
         <Script
