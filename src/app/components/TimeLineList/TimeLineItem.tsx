@@ -1,7 +1,6 @@
 import React, { FC } from 'react';
 import type { ExperienceInfo } from '@/types';
 import InfoContent from './InfoContent';
-
 interface TimeLineItemProps {
   title: string;
   info: ExperienceInfo;
@@ -10,50 +9,44 @@ interface TimeLineItemProps {
 const TimeLineItem: FC<TimeLineItemProps> = ({ title, info, compact }) => {
   if (compact) {
     return (
-      <div className="mb-6 last:mb-0 break-inside-avoid relative pl-4 border-l border-slate-200 dark:border-slate-700 last:border-l-0">
-        <div className="absolute -left-[3px] top-1.5 w-1.5 h-1.5 rounded-full bg-slate-300 dark:bg-slate-600" />
-        <div className="font-semibold text-sm leading-none mb-1">{title}</div>
-        <div className="text-[11px] font-mono text-slate-400 dark:text-slate-500 mb-1">
+      <div className="relative mb-6 break-inside-avoid border-l border-slate-200 pl-4 last:mb-0 last:border-l-0 dark:border-slate-700">
+        <div className="absolute -left-[3px] top-1.5 h-1.5 w-1.5 rounded-full bg-violet-500 dark:bg-violet-400" />
+        <div className="mb-1 text-sm font-semibold leading-none">{title}</div>
+        <div className="mb-1 font-mono text-[11px] text-slate-400 dark:text-slate-500">
           {info.from} - {info.to}
         </div>
-        <div className="text-xs text-slate-600 dark:text-slate-400">{info.degree}</div>
+        <div className="text-xs text-slate-600 dark:text-slate-400">
+          {info.degree}
+        </div>
       </div>
     );
   }
-
   return (
-    <div className="mb-0 pb-10 print:pb-6 last:pb-0 break-inside-avoid relative pl-8 group">
-      {/* Timeline Line */}
-      <div className="absolute left-0 top-2 bottom-0 w-px bg-slate-200 dark:bg-slate-700 group-last:bg-transparent" />
-      
-      {/* Timeline Dot */}
-      <div className="absolute -left-[4px] top-2 w-2.5 h-2.5 rounded-full bg-white dark:bg-slate-900 border-2 border-primary-500 dark:border-primary-400 shadow-[0_0_0_3px_white] dark:shadow-[0_0_0_3px_rgb(30,41,59)] z-10" />
-      
-      <div className="flex flex-col sm:flex-row sm:justify-between sm:items-baseline gap-1 mb-2">
-        <h3 className="text-lg font-bold text-slate-800 dark:text-slate-100 leading-tight">
+    <div className="group relative mb-6 break-inside-avoid rounded-lg border border-slate-200 p-6 transition-all duration-200 last:mb-0 hover:scale-[1.01] hover:border-violet-500/30 hover:shadow-lg hover:shadow-violet-500/10 print:border-slate-300 print:pb-4 dark:border-white/5 dark:bg-slate-800/30 dark:backdrop-blur-sm dark:hover:border-violet-400/30">
+      {/* Header */}
+      <div className="mb-3 flex flex-col gap-2 sm:flex-row sm:items-baseline sm:justify-between">
+        <h3 className="text-xl font-bold leading-tight tracking-tight text-slate-800 dark:text-slate-100">
           {title}
           {info.position && (
-            <span className="text-base font-medium text-slate-600 dark:text-slate-400 block sm:inline sm:ml-2">
-               — {info.position}
+            <span className="mt-1 block text-base font-semibold text-primary-600 dark:text-primary-400 sm:ml-2 sm:inline">
+              — {info.position}
             </span>
           )}
         </h3>
-        <div className="text-xs font-mono text-slate-500 whitespace-nowrap shrink-0 bg-slate-100 dark:bg-slate-700 px-2 py-0.5 rounded">
+        <div className="shrink-0 whitespace-nowrap rounded bg-slate-100 px-2 py-0.5 font-mono text-xs text-slate-500 dark:bg-slate-700 dark:text-slate-400">
           {info.from} — {info.to}
         </div>
       </div>
-      
-      <div className="text-xs font-mono text-slate-500 dark:text-slate-400 mb-3 flex items-center gap-2">
-          <span>{info.location}</span>
-          {info.degree && (
-            <>
-              <span className="w-1 h-1 rounded-full bg-slate-300"></span>
-              <span>{info.degree}</span>
-            </>
-          )}
+      <div className="mb-3 flex items-center gap-2 font-mono text-xs text-slate-500 dark:text-slate-400">
+        <span>{info.location}</span>
+        {info.degree && (
+          <>
+            <span className="h-1 w-1 rounded-full bg-slate-300"></span>
+            <span>{info.degree}</span>
+          </>
+        )}
       </div>
-
-      <div className="text-[13px] leading-relaxed text-slate-700 dark:text-slate-300 space-y-2">
+      <div className="space-y-2 text-[13px] leading-relaxed text-slate-700 dark:text-slate-300">
         {info.content?.map((item, i) => (
           <InfoContent
             key={i}
@@ -66,5 +59,4 @@ const TimeLineItem: FC<TimeLineItemProps> = ({ title, info, compact }) => {
     </div>
   );
 };
-
 export default TimeLineItem;

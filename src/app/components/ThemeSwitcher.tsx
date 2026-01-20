@@ -2,7 +2,6 @@
 import { FC, useCallback, useEffect, useSyncExternalStore } from 'react';
 import { MdDarkMode, MdLightMode } from 'react-icons/md';
 import { event } from '@/ga';
-
 type Theme = 'light' | 'dark';
 const store = {
   getSnapshot() {
@@ -33,7 +32,6 @@ const store = {
     this.setTheme(newTheme);
   },
 } as const;
-
 const colorMode = 'light';
 const ThemeSwitcher: FC = () => {
   const theme = useSyncExternalStore(
@@ -41,7 +39,6 @@ const ThemeSwitcher: FC = () => {
     store.getSnapshot,
     store.getServerSnapshot
   );
-
   const handleToggle = useCallback(() => {
     store.toggleTheme();
     event('click', {
@@ -49,7 +46,6 @@ const ThemeSwitcher: FC = () => {
       label: colorMode === 'light' ? 'dark' : 'light',
     });
   }, []);
-
   useEffect(() => {
     if (!theme) {
       // initialization
@@ -63,13 +59,13 @@ const ThemeSwitcher: FC = () => {
       else document.documentElement.classList.remove('dark');
     }
   }, [theme]);
-  const iconClasses = "size-6 transition-all duration-300 group-hover:rotate-12 group-active:scale-90";
-
+  const iconClasses =
+    'size-6 transition-all duration-300 group-hover:rotate-12 group-active:scale-90';
   return (
-    <div 
-      className="fixed top-4 right-4 print:hidden cursor-pointer p-2 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 shadow-md hover:shadow-lg hover:bg-slate-200 dark:hover:bg-slate-700 transition-all duration-200 group active:scale-95"
+    <div
+      className="glass-button group fixed right-4 top-4 cursor-pointer rounded-full border p-2 text-slate-600 shadow-md transition-all duration-200 hover:shadow-lg active:scale-95 print:hidden dark:border-white/10 dark:text-slate-300"
       onClick={handleToggle}
-      title={theme === 'dark' ? "Switch to light mode" : "Switch to dark mode"}
+      title={theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode'}
     >
       {theme === 'dark' ? (
         <MdLightMode className={iconClasses} />
@@ -79,5 +75,4 @@ const ThemeSwitcher: FC = () => {
     </div>
   );
 };
-
 export default ThemeSwitcher;
