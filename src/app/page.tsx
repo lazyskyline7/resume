@@ -1,5 +1,4 @@
-import ThemeSwitcher from './components/ThemeSwitcher';
-import PrintSwitcher from './components/PrintSwitcher';
+import SettingsMenu from './components/SettingMenu';
 import { Bios, SocialLinks } from './components/Profile';
 import SkillSet from './components/SkillSet';
 import TimeLineList from './components/TimeLineList';
@@ -50,8 +49,7 @@ const Home: FC = () => {
           </main>
         </div>
       </div>
-      <ThemeSwitcher />
-      <PrintSwitcher />
+      <SettingsMenu />
     </div>
   );
 };

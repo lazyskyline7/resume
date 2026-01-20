@@ -30,7 +30,7 @@ const printStore = {
   },
 } as const;
 
-const PrintSwitcher: FC = () => {
+const PrintSwitcher: FC<{ inMenu?: boolean }> = ({ inMenu }) => {
   const printMode = useSyncExternalStore(
     printStore.subscribe,
     printStore.getSnapshot,
@@ -62,10 +62,37 @@ const PrintSwitcher: FC = () => {
   }, [enablePrint]);
 
   if (printMode === null) {
+    if (inMenu) return null;
     return (
       <div className="glass-button fixed bottom-4 left-4 rounded-full border p-2 opacity-0 print:hidden dark:border-white/10">
         <div className="size-6" />
       </div>
+    );
+  }
+
+  if (inMenu) {
+    return (
+      <button
+        onClick={handleToggle}
+        className="glass-button group flex size-10 items-center justify-center rounded-full border border-slate-200 bg-white/50 text-slate-600 shadow-md backdrop-blur-sm transition-all duration-200 hover:bg-white/80 hover:shadow-lg active:scale-95 dark:border-white/10 dark:bg-slate-900/50 dark:text-slate-300 dark:hover:bg-slate-900/80"
+        title={enablePrint ? 'Disable printing mode' : 'Enable printing mode'}
+      >
+        <div className="transition-transform duration-300 group-hover:scale-110 group-active:scale-90">
+          {enablePrint ? (
+            <MdOutlinePrint
+              size={24}
+              role="button"
+              aria-label="Disable printing"
+            />
+          ) : (
+            <MdOutlinePrintDisabled
+              size={24}
+              role="button"
+              aria-label="Enable printing"
+            />
+          )}
+        </div>
+      </button>
     );
   }
 

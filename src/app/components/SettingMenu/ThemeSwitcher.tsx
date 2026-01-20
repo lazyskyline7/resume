@@ -34,7 +34,7 @@ const store = {
   },
 } as const;
 
-const ThemeSwitcher: FC = () => {
+const ThemeSwitcher: FC<{ inMenu?: boolean }> = ({ inMenu }) => {
   const theme = useSyncExternalStore(
     store.subscribe,
     store.getSnapshot,
@@ -65,6 +65,19 @@ const ThemeSwitcher: FC = () => {
 
   const iconClasses =
     'size-6 transition-all duration-300 group-hover:rotate-12 group-active:scale-90';
+
+  if (inMenu) {
+    return (
+      <button
+        onClick={handleToggle}
+        className="glass-button group flex size-10 items-center justify-center rounded-full border border-slate-200 bg-white/50 text-slate-600 shadow-md backdrop-blur-sm transition-all duration-200 hover:bg-white/80 hover:shadow-lg active:scale-95 dark:border-white/10 dark:bg-slate-900/50 dark:text-slate-300 dark:hover:bg-slate-900/80"
+        title="Toggle theme"
+      >
+        <MdLightMode className={`${iconClasses} hidden dark:block`} />
+        <MdDarkMode className={`${iconClasses} block dark:hidden`} />
+      </button>
+    );
+  }
 
   return (
     <div
