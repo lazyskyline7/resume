@@ -1,10 +1,25 @@
 import { FC } from 'react';
 import clsx from 'clsx';
 import SettingsMenu from '../components/SettingMenu';
-import { Bios } from '../components/Profile';
-import TimeLineList from '@/components/TimeLineList';
-import { profile, skillSet, workExperience, education } from '@/data';
+import Bios from '../components/Bios';
+import TimeListTitle from '@/components/TimeListTitle';
+import {
+  profile,
+  skillSet,
+  workExperience,
+  education,
+  
+} from '@/data';
 import Sidebar from '@/components/Sidebar';
+import TimeLineItem from '@/components/TimeLineItem';
+import { Company, ExperienceInfo } from '@/types';
+
+export const COMPANY_NAME_MAP = {
+  linker: 'Linker Networks Inc.',
+  appier: 'Appier Inc.',
+  cdc: 'Crypto.com',
+  cronos: 'Cronos Labs',
+} as const;
 
 const BackgroundBlobs: FC = () => (
   <div className="pointer-events-none fixed inset-0 -z-10 overflow-hidden print:hidden">
@@ -63,7 +78,15 @@ const Home: FC = () => {
               'print:gap-4 print:p-4 print:text-[10px]'
             )}
           >
-            <TimeLineList title="Work Experience" list={workExperience} />
+            <TimeListTitle>Work Experience</TimeListTitle>
+            {Object.entries(workExperience).map(([name, info]) => (
+              <TimeLineItem
+                key={name}
+                title={COMPANY_NAME_MAP[name as Company]}
+                info={info as ExperienceInfo}
+                compact
+              />
+            ))}
           </main>
         </div>
       </div>

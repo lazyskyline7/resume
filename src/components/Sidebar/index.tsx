@@ -1,11 +1,23 @@
 import { FC } from 'react';
 import clsx from 'clsx';
 
-import TimeLineList from '../TimeLineList';
-import { College, ExperienceData, SkillLevel, SkillSetData } from '@/types';
+import {
+  College,
+  ExperienceData,
+  ExperienceInfo,
+  SkillLevel,
+  SkillSetData,
+} from '@/types';
 import { socialLinks } from '@/data';
 import SocialLink from './SocialLink';
 import SkillList from '../SkillList';
+import TimeListTitle from '../TimeListTitle';
+import TimeLineItem from '../TimeLineItem';
+
+export const COLLEGE_NAME_MAP = {
+  ntu: 'National Taiwan University',
+  nchu: 'National Chung Hsing University',
+} as const;
 
 interface SidebarProps {
   skillSet: SkillSetData;
@@ -63,7 +75,15 @@ const Sidebar: FC<SidebarProps> = ({ skillSet, education }) => (
 
     {/* Education Section (Compact) */}
     <div className="flex flex-col gap-4 print:break-inside-avoid">
-      <TimeLineList title="Education" list={education} compact />
+      <TimeListTitle compact>Education</TimeListTitle>
+      {Object.entries(education).map(([name, info]) => (
+        <TimeLineItem
+          key={name}
+          title={COLLEGE_NAME_MAP[name as College]}
+          info={info as ExperienceInfo}
+          compact
+        />
+      ))}
     </div>
   </aside>
 );
