@@ -1,6 +1,6 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  output: 'export',
+  output: 'standalone',
   reactStrictMode: true,
   basePath: process.env.BASE_PATH || '',
   webpack: (config) => {
@@ -13,6 +13,14 @@ const nextConfig = {
       ],
     });
     return config;
+  },
+  turbopack: {
+    rules: {
+      '*.jsonc': {
+        loaders: ['jsonc-loader'],
+        as: '*.js',
+      },
+    },
   },
 };
 
