@@ -3,6 +3,7 @@ import { FC, useEffect, useSyncExternalStore } from 'react';
 import { MdDarkMode, MdLightMode } from 'react-icons/md';
 import { event } from '@/ga';
 import Button from './Button';
+import clsx from 'clsx';
 
 type Theme = 'light' | 'dark';
 
@@ -69,8 +70,8 @@ const ThemeSwitcher: FC = () => {
 
   return (
     <Button onClick={handleToggle} title="Toggle theme">
-      <MdLightMode className={`${iconClasses} hidden dark:block`} />
-      <MdDarkMode className={`${iconClasses} block dark:hidden`} />
+      <MdLightMode className={clsx(iconClasses, 'hidden dark:block')} />
+      <MdDarkMode className={clsx(iconClasses, 'block dark:hidden')} />
     </Button>
   );
 };

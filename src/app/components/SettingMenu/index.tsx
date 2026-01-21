@@ -5,6 +5,7 @@ import ThemeSwitcher from './ThemeSwitcher';
 import PrintButton from './PrintButton';
 import { event } from '@/ga';
 import Button from './Button';
+import clsx from 'clsx';
 
 const SettingsMenu: FC = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -38,11 +39,12 @@ const SettingsMenu: FC = () => {
   return (
     <div ref={menuRef} className="fixed right-4 top-4 z-50 print:hidden">
       <div
-        className={`absolute right-0 top-12 flex flex-col gap-3 transition-all duration-300 origin-top-right ${
+        className={clsx(
+          'absolute right-0 top-12 flex flex-col gap-3 transition-all duration-300 origin-top-right',
           isOpen
             ? 'opacity-100 scale-100 translate-y-0'
             : 'opacity-0 scale-95 -translate-y-4 pointer-events-none'
-        }`}
+        )}
       >
         <ThemeSwitcher />
         <PrintButton />
@@ -56,14 +58,16 @@ const SettingsMenu: FC = () => {
       >
         <div className="relative size-6">
           <MdSettings
-            className={`absolute inset-0 size-6 transition-all duration-300 ${
+            className={clsx(
+              'absolute inset-0 size-6 transition-all duration-300',
               isOpen ? 'rotate-90 opacity-0' : 'rotate-0 opacity-100'
-            }`}
+            )}
           />
           <MdClose
-            className={`absolute inset-0 size-6 transition-all duration-300 ${
+            className={clsx(
+              'absolute inset-0 size-6 transition-all duration-300',
               isOpen ? 'rotate-0 opacity-100' : '-rotate-90 opacity-0'
-            }`}
+            )}
           />
         </div>
       </Button>
