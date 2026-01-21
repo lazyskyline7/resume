@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import { Inter, JetBrains_Mono } from 'next/font/google';
 import './globals.css';
 import Script from 'next/script';
-import { generateThemeCSSVariables, getThemePreset } from '@/lib/themes';
+import { generateThemeCSSVariables, getThemePreset } from '@/theme';
 
 const inter = Inter({ subsets: ['latin'], variable: '--font-sans' });
 const jetbrainsMono = JetBrains_Mono({

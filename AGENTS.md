@@ -9,21 +9,27 @@ It outlines the build process, code style, and architectural standards to ensure
 - **Framework**: Next.js 14 (App Router)
 - **Language**: TypeScript
 - **Styling**: Tailwind CSS
-- **Package Manager**: Bun (indicated by `bun.lockb`)
+- **Package Manager**: Bun
+- **Icon Set**: React Icons
 
 ## 2. Build, Lint, and Test Commands
 
 ### Build & Run
+
 - **Development Server**:
+
   ```bash
   bun run dev
   ```
+
   Runs the app on `http://localhost:3000`.
 
 - **Production Build**:
+
   ```bash
   bun run build
   ```
+
   Creates an optimized production build in the `.next` folder.
 
 - **Start Production Server**:
@@ -32,10 +38,13 @@ It outlines the build process, code style, and architectural standards to ensure
   ```
 
 ### Linting & Formatting
+
 - **Lint Code**:
+
   ```bash
   bun run lint
   ```
+
   Uses ESLint with `eslint-config-next` and `eslint-config-prettier`.
   Ensure 0 linting errors before committing.
 
@@ -44,12 +53,14 @@ It outlines the build process, code style, and architectural standards to ensure
   bun run prettier
   ```
   Runs Prettier on `./src` and automatically fixes formatting issues.
-  Configuration is in `prettier.config.js` and includes `prettier-plugin-tailwindcss`.
+  Configuration is in `prettier.config.js` and includes `prettier-plugin-tailwindcss` for class sorting.
 
 ### Testing
-*Note: No testing framework is currently configured in `package.json`.*
 
-If/when testing is added (Vitest is recommended for this stack):
+_Note: No testing framework is explicitly configured in `package.json` scripts._
+
+However, since `bun` is used, the built-in test runner is available if test files are added.
+
 - **Run All Tests**:
   ```bash
   bun test
@@ -57,103 +68,84 @@ If/when testing is added (Vitest is recommended for this stack):
 - **Run Single Test**:
   ```bash
   bun test <path/to/test-file>
-  # Example: bun test src/components/Header.test.tsx
+  # Example: bun test src/app/components/Profile/Bios.test.tsx
   ```
 
 ## 3. Code Style Guidelines
 
 ### General
+
 - **Clarity**: Write self-documenting code. Variable and function names should be descriptive.
-- **Comments**: Use comments to explain *why* complex logic exists, not *what* it does.
-- **DRY (Don't Repeat Yourself)**: Extract common logic into custom hooks or utility functions.
+- **DRY**: Extract common logic into custom hooks or utility functions.
+- **Data Driven**: Resume data is centralized in `src/data.ts`.
 
 ### TypeScript
-- **Strict Mode**: `strict: true` is enabled in `tsconfig.json`. Handle all types explicitly.
-- **No Any**: Avoid using `any`. Use `unknown` if the type is truly uncertain, then narrow it.
-- **Interfaces vs Types**: Prefer `interface` for object definitions and component props. Use `type` for unions/intersections.
+
+- **Strict Mode**: `strict: true` is enabled. Handle all types explicitly.
+- **Component Types**: usage of `FC` (Function Component) type is observed and accepted.
   ```typescript
-  // Good
-  interface ButtonProps {
-    label: string;
-    onClick: () => void;
-  }
+  // Example found in codebase
+  const MyComponent: FC<Props> = ({ prop }) => ...
   ```
-- **Explicit Returns**: Define return types for complex functions to ensure contract safety.
+- **Interfaces**: Use `interface` for prop definitions.
+- **No Any**: Avoid `any`.
 
 ### React & Next.js (App Router)
+
 - **Component Structure**:
-  - Use Functional Components.
-  - Place components in `src/components`.
-  - Use named exports for components: `export const MyComponent = ...` (avoids default export refactoring issues).
-- **Server vs Client Components**:
+  - Components are currently located in `src/app/components`.
+  - Directory structure often uses a folder per component with an `index.ts` for exports.
+  - **Exports**: Files often use `export default`, but index files re-export them as named exports.
+- **Server vs Client**:
   - Default to **Server Components**.
-  - Add `"use client"` directive at the top of the file *only* when necessary (hooks, event listeners).
-- **Hooks**:
-  - Use built-in hooks (`useState`, `useEffect`) appropriately.
-  - Create custom hooks for reusable logic in `src/hooks`.
-- **Props**:
-  - Destructure props in the function signature.
-  - Use optional props `?` where appropriate.
+  - Use `"use client"` only when necessary (state, effects, event listeners).
 
 ### Tailwind CSS
+
 - **Utility First**: Use standard Tailwind utility classes.
-- **Ordering**: Classes are automatically sorted by the Prettier plugin. Do not manually reorder.
-- **Arbitrary Values**: Minimize use of arbitrary values (e.g., `w-[123px]`). Use theme values or extend the theme in `tailwind.config.ts`.
-- **Responsive Design**:
-  - Build mobile-first.
-  - Use prefixes: `sm:`, `md:`, `lg:`, `xl:`.
-  - Example: `className="w-full md:w-1/2"` (Full width on mobile, half on desktop).
-- **Dynamic Classes**: Use `clsx` or `tailwind-merge` if complex conditional class logic is required (check if installed, otherwise template literals).
+- **Ordering**: Relies on Prettier plugin to sort classes.
+- **Responsive**: Mobile-first (`sm:`, `md:` prefixes).
+- **Theme**: Custom theme colors defined in `tailwind.config.ts`.
 
 ### Imports
-- **Path Aliases**: ALWAYS use the `@/` alias for imports from the `src` directory.
+
+- **Path Aliases**: Use `@/` alias for imports from `src` root (e.g., `@/data`, `@/types`).
   ```typescript
-  // Correct
-  import { Button } from "@/components/Button";
-  
-  // Incorrect
-  import { Button } from "../../components/Button";
+  import DATA from '@/data';
+  import { ProfileData } from '@/types';
   ```
+- **Relative Imports**: Used for sibling components or styles within the same module.
 - **Order**:
-  1. External libraries (React, Next.js, etc.)
-  2. Internal components (`@/components/...`)
-  3. Internal utilities/hooks (`@/lib/...`, `@/hooks/...`)
-  4. Styles (if any CSS modules used)
-- **Unused Imports**: Remove all unused imports.
+  1. External libraries (React, Next.js)
+  2. Internal absolute imports (`@/...`)
+  3. Internal relative imports (`./...`)
 
-### Naming Conventions
-- **Files/Directories**:
-  - Components: `PascalCase.tsx` (e.g., `HeroSection.tsx`)
-  - Utilities: `camelCase.ts` (e.g., `dateFormatter.ts`)
-  - Pages (Next.js): `page.tsx`, `layout.tsx`
-- **Variables/Functions**: `camelCase`
-- **Constants**: `UPPER_SNAKE_CASE` for true constants (e.g., `MAX_RETRIES`).
-- **Components**: `PascalCase`
+## 4. Directory Structure
 
-## 4. Error Handling
-- Use `try/catch` blocks for async operations.
-- Handle API errors gracefully and provide UI feedback (e.g., toast notifications or error states).
-- Use React Error Boundaries (`error.tsx` in Next.js App Router) for handling runtime errors in route segments.
-
-## 5. Directory Structure (Standardized)
 ```
 src/
-├── app/                 # Next.js App Router pages and layouts
+├── app/                 # Next.js App Router
+│   ├── components/      # UI Components (colocated here)
+│   │   ├── Profile/     # Component folders with index.ts
+│   │   ├── SettingMenu/
+│   │   └── ...
 │   ├── layout.tsx       # Root layout
 │   └── page.tsx         # Home page
-├── components/          # Reusable UI components
-│   ├── ui/              # Basic UI primitives (buttons, inputs)
-│   └── sections/        # Larger page sections (Hero, About)
-├── lib/                 # Utility functions and shared logic
-├── types/               # Global TypeScript definitions
-└── styles/              # Global styles (globals.css)
+├── data.ts              # Centralized resume data
+├── ga.ts                # Google Analytics
+├── theme/               # Theme definitions
+├── types.ts             # Global TypeScript definitions
+└── styles/              # Global styles
 ```
 
-## 6. Git Workflow
-- **Commit Messages**: Use conventional commits (e.g., `feat: add hero section`, `fix: header alignment`, `chore: update deps`).
-- **Clean Working Tree**: Ensure `bun run lint` and build pass before committing.
+## 5. Git Workflow
 
-## 7. Agents & AI Interaction
-- When generating code, prioritize modern Next.js 14+ patterns.
-- If dependencies are missing for a requested feature, check `package.json` first, then suggest installation.
-- Always respect the `prettier` configuration; the agent should output formatted code or run the formatter.
+- **Commit Messages**: Use conventional commits (e.g., `feat: ...`, `fix: ...`, `chore: ...`).
+- **Verification**: Run `bun run lint` and `bun run build` before committing.
+
+## 6. Agents & AI Interaction
+
+- **Context**: Always check `src/data.ts` when modifying resume content.
+- **Patterns**: Follow the existing pattern of `FC` usage and folder-based components with `index.ts` re-exports.
+- **Dependencies**: Use `bun add` or `bun add -d` for new packages.
+- **Formatting**: Always apply `bun run prettier` after code generation.
