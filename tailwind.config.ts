@@ -1,38 +1,16 @@
 import type { Config } from 'tailwindcss';
+import { getTailwindThemeColors } from './src/theme/shared';
 
 const config: Config = {
   darkMode: 'class',
-  content: ['./src/app/**/*.{js,ts,jsx,tsx,mdx}'],
+  content: [
+    './src/app/**/*.{js,ts,jsx,tsx,mdx}',
+    './src/components/**/*.{js,ts,jsx,tsx,mdx}',
+    './src/theme/**/*.{js,ts,jsx,tsx,mdx}',
+  ],
   theme: {
     extend: {
-      colors: {
-        // Map 'primary' to the dynamic CSS variables so it adapts to the theme
-        primary: {
-          400: 'rgb(var(--color-primary-400) / <alpha-value>)',
-          500: 'rgb(var(--color-primary-500) / <alpha-value>)',
-          600: 'rgb(var(--color-primary-600) / <alpha-value>)',
-        },
-        // 'theme' alias for semantic clarity
-        theme: {
-          400: 'rgb(var(--color-primary-400) / <alpha-value>)',
-          500: 'rgb(var(--color-primary-500) / <alpha-value>)',
-          600: 'rgb(var(--color-primary-600) / <alpha-value>)',
-        },
-        blob: {
-          1: 'rgb(var(--blob-color-1) / <alpha-value>)',
-          2: 'rgb(var(--blob-color-2) / <alpha-value>)',
-          3: 'rgb(var(--blob-color-3) / <alpha-value>)',
-          4: 'rgb(var(--blob-color-4) / <alpha-value>)',
-        },
-        gradient: {
-          'from-light': 'rgb(var(--gradient-from-light) / <alpha-value>)',
-          'via-light': 'rgb(var(--gradient-via-light) / <alpha-value>)',
-          'to-light': 'rgb(var(--gradient-to-light) / <alpha-value>)',
-          'from-dark': 'rgb(var(--gradient-from-dark) / <alpha-value>)',
-          'via-dark': 'rgb(var(--gradient-via-dark) / <alpha-value>)',
-          'to-dark': 'rgb(var(--gradient-to-dark) / <alpha-value>)',
-        },
-      },
+      colors: getTailwindThemeColors(),
       fontFamily: {
         sans: ['var(--font-sans)'],
         mono: ['var(--font-mono)'],
