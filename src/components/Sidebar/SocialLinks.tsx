@@ -1,5 +1,5 @@
 'use client';
-import React, { FC } from 'react';
+import { FC } from 'react';
 import { AiFillGithub, AiFillLinkedin, AiOutlineMail } from 'react-icons/ai';
 import type { SocialLinkType, SocialLink } from '@/types';
 import { event } from '@/ga';

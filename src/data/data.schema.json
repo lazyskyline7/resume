@@ -5,30 +5,57 @@
     "profile": {
       "type": "object",
       "properties": {
-        "name": { "type": "string" },
-        "image": { "type": "string" },
-        "summary": { "type": "string" },
-        "target": { "type": "string" },
-        "socialLinks": {
-          "type": "array",
-          "items": {
-            "type": "object",
-            "properties": {
-              "name": { "enum": ["LinkedIn", "GitHub", "Email"] },
-              "link": { "type": "string" }
-            },
-            "required": ["name", "link"]
-          }
+        "name": {
+          "type": "string"
+        },
+        "image": {
+          "type": "string"
+        },
+        "summary": {
+          "type": "string"
+        },
+        "target": {
+          "type": "string"
         }
       },
-      "required": ["name", "image", "summary", "target", "socialLinks"]
+      "required": ["name", "image", "summary", "target"]
+    },
+    "socialLinks": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "enum": ["LinkedIn", "GitHub", "Email"]
+          },
+          "link": {
+            "type": "string"
+          }
+        },
+        "required": ["name", "link"]
+      }
     },
     "skillSet": {
       "type": "object",
       "properties": {
-        "proficiency": { "type": "array", "items": { "type": "string" } },
-        "familiar": { "type": "array", "items": { "type": "string" } },
-        "knowledge": { "type": "array", "items": { "type": "string" } }
+        "proficiency": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "familiar": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "knowledge": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
       },
       "required": ["proficiency", "familiar", "knowledge"]
     },
@@ -37,24 +64,40 @@
       "additionalProperties": {
         "type": "object",
         "properties": {
-          "position": { "type": "string" },
-          "location": { "type": "string" },
-          "from": { "type": "string" },
-          "to": { "type": "string" },
+          "position": {
+            "type": "string"
+          },
+          "location": {
+            "type": "string"
+          },
+          "from": {
+            "type": "string"
+          },
+          "to": {
+            "type": "string"
+          },
           "content": {
             "type": "array",
             "items": {
               "type": "object",
               "properties": {
-                "title": { "type": "string" },
-                "url": { "type": "string" },
+                "title": {
+                  "type": "string"
+                },
+                "url": {
+                  "type": "string"
+                },
                 "details": {
                   "type": "array",
                   "items": {
                     "type": "object",
                     "properties": {
-                      "title": { "type": "string" },
-                      "url": { "type": "string" }
+                      "title": {
+                        "type": "string"
+                      },
+                      "url": {
+                        "type": "string"
+                      }
                     }
                   }
                 }
@@ -70,24 +113,40 @@
       "additionalProperties": {
         "type": "object",
         "properties": {
-          "location": { "type": "string" },
-          "from": { "type": "string" },
-          "to": { "type": "string" },
-          "degree": { "type": "string" },
+          "location": {
+            "type": "string"
+          },
+          "from": {
+            "type": "string"
+          },
+          "to": {
+            "type": "string"
+          },
+          "degree": {
+            "type": "string"
+          },
           "content": {
             "type": "array",
             "items": {
               "type": "object",
               "properties": {
-                "title": { "type": "string" },
-                "url": { "type": "string" },
+                "title": {
+                  "type": "string"
+                },
+                "url": {
+                  "type": "string"
+                },
                 "details": {
                   "type": "array",
                   "items": {
                     "type": "object",
                     "properties": {
-                      "title": { "type": "string" },
-                      "url": { "type": "string" }
+                      "title": {
+                        "type": "string"
+                      },
+                      "url": {
+                        "type": "string"
+                      }
                     }
                   }
                 }
@@ -103,13 +162,26 @@
       "additionalProperties": {
         "type": "object",
         "properties": {
-          "image": { "type": "string" },
-          "content": { "type": "string" },
-          "githubLink": { "type": "string" }
+          "image": {
+            "type": "string"
+          },
+          "content": {
+            "type": "string"
+          },
+          "githubLink": {
+            "type": "string"
+          }
         },
         "required": ["image", "content", "githubLink"]
       }
     }
   },
-  "required": ["profile", "skillSet", "workExperience", "education", "project"]
+  "required": [
+    "profile",
+    "socialLinks",
+    "skillSet",
+    "workExperience",
+    "education",
+    "project"
+  ]
 }

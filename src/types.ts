@@ -6,6 +6,7 @@ export type Project = 'azure';
 
 export type ResumeData = {
   profile: ProfileData;
+  socialLinks: ReadonlyArray<SocialLink>;
   skillSet: SkillSetData;
   workExperience: ExperienceData<Company>;
   education: ExperienceData<College>;
@@ -19,7 +20,6 @@ export type ProfileData = {
   image: string;
   summary: string;
   target: string;
-  socialLinks: ReadonlyArray<SocialLink>;
 };
 
 export type SkillLevel = 'proficiency' | 'familiar' | 'knowledge';
