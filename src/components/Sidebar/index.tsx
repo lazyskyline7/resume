@@ -1,11 +1,11 @@
 import { FC } from 'react';
 import clsx from 'clsx';
-import SocialLinks from './SocialLinks';
 import SkillSet from '@/components/SkillSet';
 
 import TimeLineList from '../TimeLineList';
 import { College, ExperienceData, SkillSetData } from '@/types';
 import { socialLinks } from '@/data';
+import SocialLink from './SocialLink';
 
 interface SidebarProps {
   skillSet: SkillSetData;
@@ -36,7 +36,11 @@ const Sidebar: FC<SidebarProps> = ({ skillSet, education }) => (
       >
         Contact
       </div>
-      <SocialLinks links={socialLinks} />
+      <div className="mt-4 grid grid-cols-1 gap-3 print:grid-cols-1 print:gap-1.5 sm:grid-cols-2 md:grid-cols-1">
+        {socialLinks.map((e) => (
+          <SocialLink key={e.name} socialLink={e} />
+        ))}
+      </div>
     </div>
 
     {/* Skills Section */}
