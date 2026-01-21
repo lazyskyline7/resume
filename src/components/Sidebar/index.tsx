@@ -1,11 +1,11 @@
 import { FC } from 'react';
 import clsx from 'clsx';
-import SkillSet from '@/components/SkillSet';
 
 import TimeLineList from '../TimeLineList';
-import { College, ExperienceData, SkillSetData } from '@/types';
+import { College, ExperienceData, SkillLevel, SkillSetData } from '@/types';
 import { socialLinks } from '@/data';
 import SocialLink from './SocialLink';
+import SkillList from '../SkillList';
 
 interface SidebarProps {
   skillSet: SkillSetData;
@@ -45,7 +45,20 @@ const Sidebar: FC<SidebarProps> = ({ skillSet, education }) => (
 
     {/* Skills Section */}
     <div>
-      <SkillSet skillSet={skillSet} />
+      <div
+        className={clsx(
+          'mb-4 text-xs font-bold uppercase tracking-wider text-slate-400',
+          'dark:text-slate-500',
+          'print:mb-2 print:border-b print:border-slate-300 print:pb-1 print:text-[11px] print:text-slate-600 print:break-after-avoid'
+        )}
+      >
+        Skills
+      </div>
+      <div className="flex flex-col gap-6 print:gap-2">
+        {Object.entries(skillSet).map(([skillType, skills], i) => (
+          <SkillList key={i} level={skillType as SkillLevel} skills={skills} />
+        ))}
+      </div>
     </div>
 
     {/* Education Section (Compact) */}
