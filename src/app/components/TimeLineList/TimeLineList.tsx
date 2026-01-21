@@ -1,7 +1,7 @@
 import React from 'react';
 import TimeLineItem from './TimeLineItem';
 import type { College, Company, ExperienceData, ExperienceInfo } from '@/types';
-import Title from '../Title';
+import Title from './Title';
 import { EXPERIENCE_NAME_MAP } from '@/data';
 
 interface TimeLineListProps<T extends College | Company> {
