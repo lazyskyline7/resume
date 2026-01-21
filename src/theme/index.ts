@@ -38,7 +38,8 @@ export interface ThemeColors {
  * Predefined theme presets for common companies
  */
 const { $schema, ...themePresets } = themesData as Record<string, unknown>;
-export const THEME_PRESETS: Record<string, ThemeColors> = themePresets as Record<string, ThemeColors>;
+export const THEME_PRESETS: Record<string, ThemeColors> =
+  themePresets as Record<string, ThemeColors>;
 
 /**
  * Default fallback colors (violet theme)

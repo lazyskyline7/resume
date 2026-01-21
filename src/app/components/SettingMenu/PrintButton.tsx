@@ -24,7 +24,7 @@ const PrintButton: FC = () => {
   return (
     <button
       onClick={handlePrint}
-      className="glass-button group flex size-10 items-center justify-center rounded-full border border-slate-200 bg-white/50 text-slate-600 shadow-md backdrop-blur-sm transition-all duration-200 hover:bg-white/80 hover:shadow-lg active:scale-95 dark:border-white/10 dark:bg-slate-900/50 dark:text-slate-300 dark:hover:bg-slate-900/80"
+      className="glass-button group flex size-10 items-center justify-center rounded-full border border-slate-200 bg-white/50 text-slate-600 shadow-md backdrop-blur-sm transition-all duration-200 hover:border-theme-500/50 hover:bg-theme-500/20 hover:text-theme-600 hover:shadow-lg hover:shadow-theme-500/20 active:scale-95 dark:border-white/10 dark:bg-slate-900/50 dark:text-slate-300 dark:hover:bg-theme-500/30 dark:hover:text-theme-400"
       title="Print Resume"
       aria-label="Print Resume"
     >

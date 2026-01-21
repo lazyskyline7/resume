@@ -49,19 +49,19 @@ const SettingsMenu: FC = () => {
 
       <button
         onClick={toggleMenu}
-        className="glass-button group flex size-10 items-center justify-center rounded-full border border-slate-200 bg-white/50 text-slate-600 shadow-md backdrop-blur-sm transition-all duration-200 hover:bg-white/80 hover:shadow-lg active:scale-95 dark:border-white/10 dark:bg-slate-900/50 dark:text-slate-300 dark:hover:bg-slate-900/80"
+        className="glass-button group flex size-10 items-center justify-center rounded-full border border-slate-200 bg-white/50 text-slate-600 shadow-md backdrop-blur-sm transition-all duration-200 hover:border-theme-500/50 hover:bg-theme-500/20 hover:text-theme-600 hover:shadow-lg hover:shadow-theme-500/20 active:scale-95 dark:border-white/10 dark:bg-slate-900/50 dark:text-slate-300 dark:hover:bg-theme-500/30 dark:hover:text-theme-400"
         title="Settings"
         aria-label="Settings"
         aria-expanded={isOpen}
       >
         <div className="relative size-6">
-            <MdSettings
-              className={`absolute inset-0 size-6 transition-all duration-300 hover:text-theme-600 dark:hover:text-theme-400 ${
+          <MdSettings
+            className={`absolute inset-0 size-6 transition-all duration-300 ${
               isOpen ? 'rotate-90 opacity-0' : 'rotate-0 opacity-100'
             }`}
           />
           <MdClose
-            className={`absolute inset-0 size-6 transition-all duration-300 hover:text-theme-600 ${
+            className={`absolute inset-0 size-6 transition-all duration-300 ${
               isOpen ? 'rotate-0 opacity-100' : '-rotate-90 opacity-0'
             }`}
           />
