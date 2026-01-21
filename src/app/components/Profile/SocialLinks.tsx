@@ -37,7 +37,7 @@ const SocialLinks: FC<SocialLinksProps> = ({ links }) => {
             rel="noopener noreferrer"
             onClick={() => onLinkClick(e.name)}
           >
-            <div className="rounded-full bg-slate-100 p-2 transition-all duration-200 group-hover:scale-110 group-hover:bg-theme-500/10 print:bg-transparent print:p-0 dark:bg-slate-700 dark:group-hover:bg-theme-500/20">
+            <div className="rounded-full bg-slate-100 p-2 border border-transparent transition-all duration-200 group-hover:scale-110 group-hover:bg-theme-600/10 print:bg-transparent print:p-0 dark:border-slate-700 dark:bg-slate-800/50 dark:group-hover:bg-theme-400/20">
               <Icon className="size-5 print:size-4" />
             </div>
             <div className="break-all text-sm print:text-[11px] print:leading-tight">
