@@ -18,19 +18,9 @@ const themeInitScript = `
   (function() {
     try {
       var theme = localStorage.getItem('theme');
-      var printMode = localStorage.getItem('printMode');
       
-      if (theme === 'dark' || (!theme && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
-        document.documentElement.classList.add('dark');
-      } else {
-        document.documentElement.classList.remove('dark');
-      }
-      
-      if (printMode === 'true') {
-        document.documentElement.classList.remove('print:hidden');
-      } else {
-        document.documentElement.classList.add('print:hidden');
-      }
+      var isDark = theme === 'dark' || (!theme && window.matchMedia('(prefers-color-scheme: dark)').matches);
+      document.documentElement.classList.toggle('dark', isDark);
       
       document.documentElement.dataset.themeLoaded = 'true';
     } catch (e) {}
@@ -43,7 +33,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html className="print:hidden" lang="en" suppressHydrationWarning>
       <head>
         <script dangerouslySetInnerHTML={{ __html: themeInitScript }} />
       </head>

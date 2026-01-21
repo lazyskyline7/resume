@@ -1,5 +1,5 @@
 'use client';
-import React, { FC, useCallback } from 'react';
+import React, { FC } from 'react';
 import { AiFillGithub, AiFillLinkedin, AiOutlineMail } from 'react-icons/ai';
 import type { SocialLinkType, SocialLink } from '@/types';
 import { event } from '@/ga';
@@ -9,16 +9,17 @@ const SOCIAL_LINK_ICON_MAP: Record<SocialLinkType, IconType> = {
   LinkedIn: AiFillLinkedin,
   GitHub: AiFillGithub,
 } as const;
+
+const onLinkClick = (linkType: SocialLinkType) => {
+  event('click', {
+    category: 'social',
+    label: linkType,
+  });
+};
 interface SocialLinksProps {
   links: readonly SocialLink[];
 }
 const SocialLinks: FC<SocialLinksProps> = ({ links }) => {
-  const handleClick = useCallback((linkType: SocialLinkType) => {
-    event('click', {
-      category: 'social',
-      label: linkType,
-    });
-  }, []);
   const formatDisplayLink = (link: string, name: SocialLinkType) => {
     if (name === 'Email') return link;
     return link.replace(/^https?:\/\/(www\.)?/, '');
@@ -34,7 +35,7 @@ const SocialLinks: FC<SocialLinksProps> = ({ links }) => {
             href={e.link}
             target="_blank"
             rel="noopener noreferrer"
-            onClick={() => handleClick(e.name)}
+            onClick={() => onLinkClick(e.name)}
           >
             <div className="rounded-full bg-slate-100 p-2 transition-all duration-200 group-hover:scale-110 group-hover:bg-primary-50 print:bg-transparent print:p-0 dark:bg-slate-700 dark:group-hover:bg-violet-900/50">
               <Icon className="size-5 print:size-4" />

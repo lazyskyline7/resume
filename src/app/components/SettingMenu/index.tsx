@@ -2,7 +2,7 @@
 import { FC, useState, useRef, useEffect } from 'react';
 import { MdSettings, MdClose } from 'react-icons/md';
 import ThemeSwitcher from './ThemeSwitcher';
-import PrintSwitcher from './PrintSwitcher';
+import PrintButton from './PrintButton';
 import { event } from '@/ga';
 
 const SettingsMenu: FC = () => {
@@ -43,8 +43,8 @@ const SettingsMenu: FC = () => {
             : 'opacity-0 scale-95 -translate-y-4 pointer-events-none'
         }`}
       >
-        <ThemeSwitcher inMenu />
-        <PrintSwitcher inMenu />
+        <ThemeSwitcher />
+        <PrintButton />
       </div>
 
       <button
