@@ -25,22 +25,22 @@ const SocialLinks: FC<SocialLinksProps> = ({ links }) => {
     return link.replace(/^https?:\/\/(www\.)?/, '');
   };
   return (
-    <div className="mt-4 grid grid-cols-1 gap-3 print:grid-cols-1 print:gap-1 sm:grid-cols-2 md:grid-cols-1">
+    <div className="mt-4 grid grid-cols-1 gap-3 print:grid-cols-1 print:gap-1.5 sm:grid-cols-2 md:grid-cols-1">
       {links.map((e) => {
         const Icon = SOCIAL_LINK_ICON_MAP[e.name];
         return (
           <a
             key={e.name}
-            className="group flex items-center gap-3 text-slate-600 no-underline transition-all duration-200 hover:text-theme-600 print:text-slate-900 dark:text-slate-400 dark:hover:text-theme-400"
+            className="group flex items-center gap-3 text-slate-600 no-underline transition-all duration-200 hover:text-theme-600 print:text-theme-600 dark:text-slate-400 dark:hover:text-theme-400"
             href={e.link}
             target="_blank"
             rel="noopener noreferrer"
             onClick={() => onLinkClick(e.name)}
           >
-            <div className="rounded-full bg-slate-100 p-2 border border-transparent transition-all duration-200 group-hover:scale-110 group-hover:bg-theme-600/10 print:bg-transparent print:p-0 dark:border-slate-700 dark:bg-slate-800/50 dark:group-hover:bg-theme-400/20">
-              <Icon className="size-5 print:size-4" />
+            <div className="rounded-full bg-slate-100 p-2 border border-transparent transition-all duration-200 group-hover:scale-110 group-hover:bg-theme-600/10 print:bg-slate-50 print:p-1 print:border print:border-slate-100 dark:border-slate-700 dark:bg-slate-800/50 dark:group-hover:bg-theme-400/20">
+              <Icon className="size-5 print:size-3" />
             </div>
-            <div className="break-all text-sm print:text-[11px] print:leading-tight">
+            <div className="break-all text-sm print:text-[10px] print:leading-tight">
               <span className="print:hidden">
                 {e.name === 'Email' ? e.link : e.name}
               </span>

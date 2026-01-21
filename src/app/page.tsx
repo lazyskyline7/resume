@@ -19,9 +19,9 @@ const Home: FC = () => {
           <Bios profile={profile} />
         </header>
         <div className="grid grid-cols-1 print:grid-cols-[240px_1fr] md:grid-cols-[300px_1fr]">
-          <aside className="glass-sidebar animate-fade-in-left flex flex-col gap-8 border-b border-slate-100 bg-[radial-gradient(#cbd5e1_1px,transparent_1px)] p-6 print:gap-4 print:border-b-0 print:border-r print:bg-slate-50 print:bg-none print:p-4 print:text-black dark:border-white/5 dark:bg-[radial-gradient(#1e293b_1px,transparent_1px)] md:border-b-0 md:border-r md:p-8 [background-size:20px_20px]">
+          <aside className="glass-sidebar animate-fade-in-left flex flex-col gap-8 border-b border-slate-100 bg-[radial-gradient(#cbd5e1_1px,transparent_1px)] p-6 print:gap-2 print:border-b-0 print:border-r print:border-slate-300 print:bg-slate-50 print:bg-none print:p-4 print:text-[10px] print:text-slate-900 dark:border-white/5 dark:bg-[radial-gradient(#1e293b_1px,transparent_1px)] md:border-b-0 md:border-r md:p-8 [background-size:20px_20px]">
             <div>
-              <div className="mb-4 text-xs font-bold uppercase tracking-wider text-slate-400 print:mb-2 print:text-slate-600 dark:text-slate-500">
+              <div className="mb-4 text-xs font-bold uppercase tracking-wider text-slate-400 print:mb-2 print:border-b print:border-slate-300 print:pb-1 print:text-[11px] print:text-slate-600 dark:text-slate-500">
                 Contact
               </div>
               <SocialLinks links={profile.socialLinks} />
@@ -29,11 +29,11 @@ const Home: FC = () => {
             <div>
               <SkillSet skillSet={skillSet} />
             </div>
-            <div className="flex flex-col gap-4">
+            <div className="flex flex-col gap-4 print:break-inside-avoid">
               <TimeLineList title="Education" list={education} compact />
             </div>
           </aside>
-          <main className="animate-fade-in-up flex flex-col gap-16 p-6 print:gap-4 print:p-4 md:p-12">
+          <main className="animate-fade-in-up flex flex-col gap-16 p-6 print:gap-4 print:p-4 print:text-[10px] md:p-12">
             <TimeLineList title="Work Experience" list={workExperience} />
           </main>
         </div>
