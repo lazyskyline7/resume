@@ -11,8 +11,8 @@ const SKILL_LEVEL_STYLES: Record<
 > = {
   proficiency: {
     container:
-      'bg-violet-500/10 dark:bg-violet-400/10 border-violet-500/30 dark:border-violet-400/30 hover:bg-violet-500/20 dark:hover:bg-violet-400/20 hover:shadow-md hover:shadow-violet-500/20',
-    text: 'text-violet-700 dark:text-violet-300 font-semibold',
+      'bg-theme-500/10 border-theme-500/30 hover:bg-theme-500/20 hover:shadow-md hover:shadow-theme-500/20',
+    text: 'text-theme-600 dark:text-theme-400 font-semibold',
   },
   familiar: {
     container:
@@ -40,7 +40,7 @@ const SkillList: FC<SkillListProps> = ({ level, skills }) => {
         {skills.map((skill, i) => (
           <div
             key={i}
-            className={`rounded-md border px-2.5 py-1 text-xs font-mono transition-all duration-200 hover:scale-105 print:border-slate-300 print:bg-transparent ${styles.container} ${styles.text}`}
+            className={`rounded-md border px-2.5 py-1 font-mono text-xs transition-all duration-200 hover:scale-105 print:border-slate-300 print:bg-transparent ${styles.container} ${styles.text}`}
           >
             {skill}
           </div>

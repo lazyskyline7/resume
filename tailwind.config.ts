@@ -1,12 +1,29 @@
 import type { Config } from 'tailwindcss';
-import colors from 'tailwindcss/colors';
+
 const config: Config = {
   darkMode: 'class',
   content: ['./src/app/**/*.{js,ts,jsx,tsx,mdx}'],
   theme: {
     extend: {
       colors: {
-        primary: colors.violet,
+        // Map 'primary' to the dynamic CSS variables so it adapts to the theme
+        primary: {
+          400: 'rgb(var(--color-primary-400) / <alpha-value>)',
+          500: 'rgb(var(--color-primary-500) / <alpha-value>)',
+          600: 'rgb(var(--color-primary-600) / <alpha-value>)',
+        },
+        // 'theme' alias for semantic clarity
+        theme: {
+          400: 'rgb(var(--color-primary-400) / <alpha-value>)',
+          500: 'rgb(var(--color-primary-500) / <alpha-value>)',
+          600: 'rgb(var(--color-primary-600) / <alpha-value>)',
+        },
+        blob: {
+          1: 'rgb(var(--blob-color-1) / <alpha-value>)',
+          2: 'rgb(var(--blob-color-2) / <alpha-value>)',
+          3: 'rgb(var(--blob-color-3) / <alpha-value>)',
+          4: 'rgb(var(--blob-color-4) / <alpha-value>)',
+        },
       },
       fontFamily: {
         sans: ['var(--font-sans)'],

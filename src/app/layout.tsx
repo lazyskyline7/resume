@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import { Inter, JetBrains_Mono } from 'next/font/google';
 import './globals.css';
 import Script from 'next/script';
+import { generateThemeCSSVariables, getThemePreset } from '@/lib/themes';
 
 const inter = Inter({ subsets: ['latin'], variable: '--font-sans' });
 const jetbrainsMono = JetBrains_Mono({
@@ -13,6 +14,9 @@ export const metadata: Metadata = {
   title: 'KL Hsu',
   description: 'resume',
 };
+
+const themeCSSVars = generateThemeCSSVariables();
+const themePreset = getThemePreset();
 
 const themeInitScript = `
   (function() {
@@ -33,8 +37,18 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html className="print:hidden" lang="en" suppressHydrationWarning>
+    <html
+      className="print:hidden"
+      lang="en"
+      data-theme={themePreset}
+      suppressHydrationWarning
+    >
       <head>
+        <style
+          dangerouslySetInnerHTML={{
+            __html: `:root { ${themeCSSVars} }`,
+          }}
+        />
         <script dangerouslySetInnerHTML={{ __html: themeInitScript }} />
       </head>
       <body className={`${inter.variable} ${jetbrainsMono.variable} font-sans`}>

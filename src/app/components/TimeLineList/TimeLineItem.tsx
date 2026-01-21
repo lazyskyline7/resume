@@ -10,7 +10,7 @@ const TimeLineItem: FC<TimeLineItemProps> = ({ title, info, compact }) => {
   if (compact) {
     return (
       <div className="relative mb-6 break-inside-avoid border-l border-slate-200 pl-4 last:mb-0 last:border-l-0 dark:border-slate-700">
-        <div className="absolute -left-[3px] top-1.5 h-1.5 w-1.5 rounded-full bg-violet-500 dark:bg-violet-400" />
+        <div className="absolute -left-[3px] top-1.5 h-1.5 w-1.5 rounded-full bg-theme-500 dark:bg-theme-400" />
         <div className="mb-1 text-sm font-semibold leading-none">{title}</div>
         <div className="mb-1 font-mono text-[11px] text-slate-400 dark:text-slate-500">
           {info.from} - {info.to}
@@ -22,15 +22,14 @@ const TimeLineItem: FC<TimeLineItemProps> = ({ title, info, compact }) => {
     );
   }
   return (
-    <div className="group relative mb-6 break-inside-avoid rounded-lg border border-slate-200 p-6 transition-all duration-200 last:mb-0 hover:scale-[1.01] hover:border-violet-500/30 hover:shadow-lg hover:shadow-violet-500/10 print:mb-4 print:border-slate-300 print:p-4 print:pb-3 dark:border-white/5 dark:bg-slate-800/30 dark:backdrop-blur-sm dark:hover:border-violet-400/30">
-      {/* Header */}
+    <div className="group relative mb-6 break-inside-avoid rounded-lg border border-slate-200 p-6 transition-all duration-200 last:mb-0 hover:scale-[1.01] hover:border-theme-500/30 hover:shadow-lg hover:shadow-theme-500/10 print:mb-4 print:border-slate-300 print:p-4 print:pb-3 dark:border-white/5 dark:bg-slate-800/30 dark:backdrop-blur-sm dark:hover:border-theme-400/30">
       <div className="mb-3 flex flex-col gap-2 print:mb-2 print:gap-1 sm:flex-row sm:items-baseline sm:justify-between">
         <div className="flex flex-col gap-1 print:gap-0">
           <h3 className="text-xl font-bold leading-tight tracking-tight text-slate-800 print:text-base print:leading-tight dark:text-slate-100">
             {title}
           </h3>
           {info.position && (
-            <div className="text-base font-semibold text-primary-600 print:text-sm print:font-medium dark:text-primary-400">
+            <div className="text-base font-semibold text-theme-600 print:text-sm print:font-medium dark:text-theme-400">
               {info.position}
             </div>
           )}

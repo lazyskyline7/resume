@@ -55,13 +55,13 @@ const SettingsMenu: FC = () => {
         aria-expanded={isOpen}
       >
         <div className="relative size-6">
-          <MdSettings
-            className={`absolute inset-0 size-6 transition-all duration-300 ${
+            <MdSettings
+              className={`absolute inset-0 size-6 transition-all duration-300 hover:text-theme-600 dark:hover:text-theme-400 ${
               isOpen ? 'rotate-90 opacity-0' : 'rotate-0 opacity-100'
             }`}
           />
           <MdClose
-            className={`absolute inset-0 size-6 transition-all duration-300 ${
+            className={`absolute inset-0 size-6 transition-all duration-300 hover:text-theme-600 ${
               isOpen ? 'rotate-0 opacity-100' : '-rotate-90 opacity-0'
             }`}
           />
