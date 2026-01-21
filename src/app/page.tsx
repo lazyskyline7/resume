@@ -21,12 +21,12 @@ const Home: FC = () => {
       </div>
       <div className="m-auto min-h-screen w-full max-w-[1200px] bg-white shadow-xl print:min-h-0 print:w-full print:max-w-none print:shadow-none dark:bg-slate-900 dark:shadow-none">
         {/* Header - Full Width */}
-        <header className="animate-fade-in-down border-b border-slate-100 p-6 print:border-slate-200 print:p-6 dark:border-white/5 md:p-12">
+        <header className="animate-fade-in-down border-b border-slate-100 p-6 print:border-b print:border-slate-300 print:p-4 print:pb-3 dark:border-white/5 md:p-12">
           <Bios profile={profile} />
         </header>
         <div className="grid grid-cols-1 md:grid-cols-[300px_1fr] print:grid-cols-[240px_1fr]">
           {/* Sidebar */}
-          <aside className="glass-sidebar animate-fade-in-left flex flex-col gap-8 border-b border-slate-100 bg-[radial-gradient(#cbd5e1_1px,transparent_1px)] p-6 print:border-b-0 print:border-r print:bg-slate-50 print:bg-none print:p-6 print:text-black dark:border-white/5 dark:bg-[radial-gradient(#1e293b_1px,transparent_1px)] md:border-b-0 md:border-r md:p-8 [background-size:20px_20px]">
+          <aside className="glass-sidebar animate-fade-in-left flex flex-col gap-8 border-b border-slate-100 bg-[radial-gradient(#cbd5e1_1px,transparent_1px)] p-6 print:gap-4 print:border-b-0 print:border-r print:bg-slate-50 print:bg-none print:p-4 print:text-black dark:border-white/5 dark:bg-[radial-gradient(#1e293b_1px,transparent_1px)] md:border-b-0 md:border-r md:p-8 [background-size:20px_20px]">
             {/* Contact */}
             <div>
               <div className="mb-4 text-xs font-bold uppercase tracking-wider text-slate-400 print:mb-2 print:text-slate-600 dark:text-slate-500">
@@ -44,7 +44,7 @@ const Home: FC = () => {
             </div>
           </aside>
           {/* Main Content */}
-          <main className="animate-fade-in-up flex flex-col gap-16 p-6 print:gap-6 print:p-6 md:p-12">
+          <main className="animate-fade-in-up flex flex-col gap-16 p-6 print:gap-4 print:p-4 md:p-12">
             <TimeLineList title="Work Experience" list={workExperience} />
           </main>
         </div>

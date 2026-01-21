@@ -40,34 +40,196 @@ body {
 }
 @media print {
   @page {
-    margin: 15mm;
-    size: A4;
+    margin: 12mm 15mm;
+    size: A4 portrait;
   }
+
+  /* Reset everything to print-friendly styles */
+  * {
+    print-color-adjust: exact !important;
+    -webkit-print-color-adjust: exact !important;
+    box-shadow: none !important;
+    animation: none !important;
+    transition: none !important;
+    color: inherit !important;
+  }
+
   body {
     background: white !important;
     color: #0f172a !important;
   }
+
+  /* Force light mode colors on all elements */
+  div,
+  section,
+  header,
+  main,
+  aside,
+  p,
+  span,
+  a,
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    color: #0f172a !important;
+    background: transparent !important;
+  }
+
+  /* Header: Make name/title more compact */
+  h1 {
+    font-size: 2rem !important;
+    line-height: 1.1 !important;
+    margin-bottom: 0.25rem !important;
+    color: #0f172a !important;
+  }
+
   /* Remove gradients for print */
   .gradient-text {
     background: none !important;
     color: #0f172a !important;
-    -webkit-text-fill-color: initial !important;
+    -webkit-text-fill-color: #0f172a !important;
+    font-weight: 800 !important;
   }
+
   /* Simplify backgrounds */
   .glass-sidebar,
   .glass-card,
   .glass-button {
-    background: #f8fafc !important;
+    background: transparent !important;
     backdrop-filter: none !important;
   }
-  .print-bg-slate {
-    background-color: #f8fafc !important;
-    -webkit-print-color-adjust: exact;
+
+  /* Main container: white background */
+  body > div > div {
+    background: white !important;
   }
-  * {
-    print-color-adjust: exact !important;
-    -webkit-print-color-adjust: exact !important;
+
+  /* Sidebar: Clean background, subtle border */
+  aside {
+    background: #f8fafc !important;
+    border-right: 1px solid #cbd5e1 !important;
+    border-bottom: none !important;
+    color: #0f172a !important;
   }
+
+  /* Header border */
+  header {
+    border-bottom: 1px solid #cbd5e1 !important;
+  }
+
+  /* Contact links: Smaller, cleaner */
+  aside a {
+    font-size: 10px !important;
+    line-height: 1.3 !important;
+    color: #0f172a !important;
+    text-decoration: none !important;
+  }
+
+  /* Icon containers */
+  aside a > div {
+    background: transparent !important;
+  }
+
+  /* Skills: More compact */
+  aside .flex.flex-wrap {
+    gap: 0.25rem !important;
+  }
+
+  aside .flex.flex-wrap > div {
+    font-size: 9px !important;
+    padding: 2px 6px !important;
+    border: 1px solid #cbd5e1 !important;
+    background: white !important;
+    color: #475569 !important;
+  }
+
+  /* Timeline items: Prevent orphaned content */
+  .break-inside-avoid {
+    page-break-inside: avoid !important;
+    break-inside: avoid !important;
+  }
+
+  /* Work experience: Compact spacing */
+  main > div > div {
+    margin-bottom: 1rem !important;
+    padding: 0.75rem !important;
+    border: 1px solid #e2e8f0 !important;
+    border-radius: 4px !important;
+    background: white !important;
+  }
+
+  /* Company name: Bold and clear */
+  main h3 {
+    font-size: 14px !important;
+    line-height: 1.2 !important;
+    color: #0f172a !important;
+    font-weight: 700 !important;
+    margin-bottom: 0.125rem !important;
+  }
+
+  /* Job position: Medium weight, subtle color */
+  main h3 + div {
+    font-size: 12px !important;
+    color: #4f46e5 !important;
+    font-weight: 500 !important;
+    margin-bottom: 0.25rem !important;
+  }
+
+  /* Education: Ultra-compact */
+  aside .relative.mb-6 {
+    margin-bottom: 0.75rem !important;
+    font-size: 11px !important;
+  }
+
+  /* Education borders */
+  aside .border-l {
+    border-color: #cbd5e1 !important;
+  }
+
+  /* Education dots */
+  aside .bg-violet-500,
+  aside .bg-violet-400 {
+    background-color: #8b5cf6 !important;
+  }
+
+  /* Section titles */
+  .text-xs.font-bold.uppercase {
+    font-size: 11px !important;
+    margin-bottom: 0.5rem !important;
+    color: #475569 !important;
+    border-bottom: 1px solid #cbd5e1 !important;
+    padding-bottom: 0.25rem !important;
+  }
+
+  /* Job titles and dates */
+  h3 {
+    font-size: 1rem !important;
+    line-height: 1.3 !important;
+    color: #0f172a !important;
+  }
+
+  /* Job position/role */
+  h3 span {
+    color: #6366f1 !important;
+  }
+
+  /* Date badges */
+  .font-mono {
+    background: #f1f5f9 !important;
+    color: #64748b !important;
+  }
+
+  /* Body text: Readable but compact */
+  p,
+  li,
+  div {
+    font-size: 10px !important;
+    line-height: 1.4 !important;
+  }
+
   /* Hide decorative elements */
   .print\:hidden {
     display: none !important;

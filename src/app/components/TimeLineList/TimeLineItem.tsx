@@ -22,22 +22,24 @@ const TimeLineItem: FC<TimeLineItemProps> = ({ title, info, compact }) => {
     );
   }
   return (
-    <div className="group relative mb-6 break-inside-avoid rounded-lg border border-slate-200 p-6 transition-all duration-200 last:mb-0 hover:scale-[1.01] hover:border-violet-500/30 hover:shadow-lg hover:shadow-violet-500/10 print:border-slate-300 print:pb-4 dark:border-white/5 dark:bg-slate-800/30 dark:backdrop-blur-sm dark:hover:border-violet-400/30">
+    <div className="group relative mb-6 break-inside-avoid rounded-lg border border-slate-200 p-6 transition-all duration-200 last:mb-0 hover:scale-[1.01] hover:border-violet-500/30 hover:shadow-lg hover:shadow-violet-500/10 print:mb-4 print:border-slate-300 print:p-4 print:pb-3 dark:border-white/5 dark:bg-slate-800/30 dark:backdrop-blur-sm dark:hover:border-violet-400/30">
       {/* Header */}
-      <div className="mb-3 flex flex-col gap-2 sm:flex-row sm:items-baseline sm:justify-between">
-        <h3 className="text-xl font-bold leading-tight tracking-tight text-slate-800 dark:text-slate-100">
-          {title}
+      <div className="mb-3 flex flex-col gap-2 print:mb-2 print:gap-1 sm:flex-row sm:items-baseline sm:justify-between">
+        <div className="flex flex-col gap-1 print:gap-0">
+          <h3 className="text-xl font-bold leading-tight tracking-tight text-slate-800 print:text-base print:leading-tight dark:text-slate-100">
+            {title}
+          </h3>
           {info.position && (
-            <span className="mt-1 block text-base font-semibold text-primary-600 dark:text-primary-400 sm:ml-2 sm:inline">
-              — {info.position}
-            </span>
+            <div className="text-base font-semibold text-primary-600 print:text-sm print:font-medium dark:text-primary-400">
+              {info.position}
+            </div>
           )}
-        </h3>
-        <div className="shrink-0 whitespace-nowrap rounded bg-slate-100 px-2 py-0.5 font-mono text-xs text-slate-500 dark:bg-slate-700 dark:text-slate-400">
+        </div>
+        <div className="shrink-0 whitespace-nowrap rounded bg-slate-100 px-2 py-0.5 font-mono text-xs text-slate-500 print:self-start print:bg-slate-50 print:px-1.5 print:py-0 print:text-[10px] dark:bg-slate-700 dark:text-slate-400">
           {info.from} — {info.to}
         </div>
       </div>
-      <div className="mb-3 flex items-center gap-2 font-mono text-xs text-slate-500 dark:text-slate-400">
+      <div className="mb-3 flex items-center gap-2 font-mono text-xs text-slate-500 print:mb-2 print:text-[10px] dark:text-slate-400">
         <span>{info.location}</span>
         {info.degree && (
           <>
@@ -46,7 +48,7 @@ const TimeLineItem: FC<TimeLineItemProps> = ({ title, info, compact }) => {
           </>
         )}
       </div>
-      <div className="space-y-2 text-[13px] leading-relaxed text-slate-700 dark:text-slate-300">
+      <div className="space-y-2 text-[13px] leading-relaxed text-slate-700 print:space-y-1 print:text-[10px] print:leading-relaxed dark:text-slate-300">
         {info.content?.map((item, i) => (
           <InfoContent
             key={i}
