@@ -3,8 +3,11 @@ interface TitleProps {
   children: string;
 }
 const Title: FC<TitleProps> = ({ children }) => (
-  <h2 className="mb-6 w-fit border-b-2 border-slate-900 pb-2 text-sm font-bold uppercase tracking-[0.2em] text-slate-500 print:break-after-avoid dark:border-slate-100 dark:text-slate-500">
-    {children}
-  </h2>
+  <div className="mb-6 w-fit print:break-after-avoid">
+    <h2 className="pb-2 text-sm font-bold uppercase tracking-[0.2em] text-slate-500 dark:text-slate-500">
+      {children}
+    </h2>
+    <div className="h-0.5 w-full bg-gradient-to-r from-gradient-from-light via-gradient-via-light to-gradient-to-light dark:from-gradient-from-dark dark:via-gradient-via-dark dark:to-gradient-to-dark" />
+  </div>
 );
 export default Title;

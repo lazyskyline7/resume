@@ -24,6 +24,14 @@ const config: Config = {
           3: 'rgb(var(--blob-color-3) / <alpha-value>)',
           4: 'rgb(var(--blob-color-4) / <alpha-value>)',
         },
+        gradient: {
+          'from-light': 'rgb(var(--gradient-from-light) / <alpha-value>)',
+          'via-light': 'rgb(var(--gradient-via-light) / <alpha-value>)',
+          'to-light': 'rgb(var(--gradient-to-light) / <alpha-value>)',
+          'from-dark': 'rgb(var(--gradient-from-dark) / <alpha-value>)',
+          'via-dark': 'rgb(var(--gradient-via-dark) / <alpha-value>)',
+          'to-dark': 'rgb(var(--gradient-to-dark) / <alpha-value>)',
+        },
       },
       fontFamily: {
         sans: ['var(--font-sans)'],

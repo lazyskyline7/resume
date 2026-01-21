@@ -11,7 +11,7 @@ const SKILL_LEVEL_STYLES: Record<
 > = {
   proficiency: {
     container:
-      'bg-theme-500/10 border-theme-500/30 hover:bg-theme-500/20 hover:shadow-md hover:shadow-theme-500/20',
+      'bg-gradient-to-br from-gradient-from-light/10 via-gradient-via-light/10 to-gradient-to-light/10 dark:from-gradient-from-dark/20 dark:via-gradient-via-dark/20 dark:to-gradient-to-dark/20 border-theme-500/30 hover:shadow-md hover:shadow-theme-500/20',
     text: 'text-theme-600 dark:text-theme-400 font-semibold',
   },
   familiar: {
