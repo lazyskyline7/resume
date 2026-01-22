@@ -15,8 +15,11 @@
   "homepage": "https://lazyskyline7.github.io/resume",
   "private": true,
   "scripts": {
-    "dev": "next dev",
-    "build": "next build",
+    "dev": "bun run fetch:data && next dev",
+    "dev:local": "next dev",
+    "dev:remote": "bun run fetch:data && next dev",
+    "fetch:data": "bun scripts/fetch-resume-data.ts",
+    "build": "bun run fetch:data && next build",
     "start": "bun .next/standalone/server.js",
     "lint": "eslint src",
     "prettier": "prettier --write src"

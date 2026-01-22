@@ -1,151 +1,193 @@
 # AGENTS.md
 
-This file provides context and guidelines for AI agents and developers working on this repository.
-It outlines the build process, code style, and architectural standards to ensure consistency and quality.
+Agent and contributor operating guide for this repository.
 
-## 1. Project Overview
+## 1) Project Overview
 
-- **Type**: Web Application (Resume)
-- **Framework**: Next.js 14 (App Router)
-- **Language**: TypeScript
-- **Styling**: Tailwind CSS
-- **Package Manager**: Bun
-- **Icon Set**: React Icons
+- **App**: Interactive resume / portfolio
+- **Framework**: Next.js **16** (App Router)
+- **Language**: TypeScript (strict)
+- **Runtime/Package manager**: Bun
+- **Styling**: Tailwind CSS **v4** (CSS-first config in `src/app/globals.css`)
+- **Notable libs**: `clsx`, `react-icons`
 
-## 2. Build, Lint, and Test Commands
+## 2) Commands (build / lint / format / test)
 
-### Build & Run
+### Install
 
-- **Development Server**:
+```bash
+bun install
+```
 
-  ```bash
-  bun run dev
-  ```
+### Dev server
 
-  Runs the app on `http://localhost:3000`.
+```bash
+bun run dev
+```
 
-- **Production Build**:
+### Production build
 
-  ```bash
-  bun run build
-  ```
+```bash
+bun run build
+```
 
-  Creates an optimized production build in the `.next` folder.
+Notes:
 
-- **Start Production Server**:
-  ```bash
-  bun run start
-  ```
+- `next.config.mjs` sets `output: 'export'` (static export).
 
-### Linting & Formatting
+### Start (production)
 
-- **Lint Code**:
+```bash
+bun run start
+```
 
-  ```bash
-  bun run lint
-  ```
+This runs the standalone server at `.next/standalone/server.js`.
 
-  Uses ESLint with `eslint-config-next` and `eslint-config-prettier`.
-  Ensure 0 linting errors before committing.
+### Lint
 
-- **Format Code**:
-  ```bash
-  bun run prettier
-  ```
-  Runs Prettier on `./src` and automatically fixes formatting issues.
-  Configuration is in `prettier.config.js` and includes `prettier-plugin-tailwindcss` for class sorting.
+```bash
+bun run lint
+```
 
-### Testing
+ESLint config: `eslint.config.mjs` (flat config) using:
 
-_Note: No testing framework is explicitly configured in `package.json` scripts._
+- `eslint-config-next/core-web-vitals`
+- `eslint-config-next/typescript`
+- `eslint-config-prettier/flat`
 
-However, since `bun` is used, the built-in test runner is available if test files are added.
+### Format
 
-- **Run All Tests**:
-  ```bash
-  bun test
-  ```
-- **Run Single Test**:
-  ```bash
-  bun test <path/to/test-file>
-  # Example: bun test src/app/components/Profile/Bios.test.tsx
-  ```
+```bash
+bun run prettier
+```
 
-## 3. Code Style Guidelines
+Prettier config: `prettier.config.js` (includes `prettier-plugin-tailwindcss`).
 
-### General
+### Tests
 
-- **Clarity**: Write self-documenting code. Variable and function names should be descriptive.
-- **DRY**: Extract common logic into custom hooks or utility functions.
-- **Data Driven**: Resume data is centralized in `src/data.ts`.
+There is **no** `test` script in `package.json` today. If/when tests are added, use Bun’s runner:
+
+Run all tests:
+
+```bash
+bun test
+```
+
+Run a **single test file**:
+
+```bash
+bun test path/to/file.test.ts
+bun test path/to/file.test.tsx
+```
+
+## 3) Repo Structure (current)
+
+```text
+src/
+  app/              # Next.js App Router
+    layout.tsx
+    page.tsx
+    globals.css
+  components/       # UI components (folder-per-component is common)
+  data/             # Resume data (JSONC + schema)
+    data.jsonc
+    data.schema.json
+    index.ts
+  theme/            # Theme presets + CSS var helpers
+  types.ts          # Global types
+  ga.ts             # gtag helper
+```
+
+## 4) Code Style (TypeScript / React / Next.js)
 
 ### TypeScript
 
-- **Strict Mode**: `strict: true` is enabled. Handle all types explicitly.
-- **Component Types**: usage of `FC` (Function Component) type is observed and accepted.
-  ```typescript
-  // Example found in codebase
-  const MyComponent: FC<Props> = ({ prop }) => ...
-  ```
-- **Interfaces**: Use `interface` for prop definitions.
-- **No Any**: Avoid `any`.
+- `strict: true` in `tsconfig.json`.
+- Prefer explicit types at module boundaries (props, exported functions, data parsing).
+- **No `any`**. Avoid `unknown` casts unless there is a clear reason; localize the cast.
+- Prefer `type` for unions/records and `interface` for object shapes used as props.
 
-### React & Next.js (App Router)
+### React components
 
-- **Component Structure**:
-  - Components are currently located in `src/app/components`.
-  - Directory structure often uses a folder per component with an `index.ts` for exports.
-  - **Exports**: Files often use `export default`, but index files re-export them as named exports.
-- **Server vs Client**:
-  - Default to **Server Components**.
-  - Use `"use client"` only when necessary (state, effects, event listeners).
+- Components are commonly typed as `FC<Props>` and exported via `export default`.
+- Props are named `ComponentNameProps` and use `interface`.
+- Use `"use client"` only when needed (hooks, event handlers, browser APIs).
+- Keep client components small; push data shaping to server components / utilities when possible.
 
-### Tailwind CSS
+### Server vs Client boundaries
 
-- **Utility First**: Use standard Tailwind utility classes.
-- **Ordering**: Relies on Prettier plugin to sort classes.
-- **Responsive**: Mobile-first (`sm:`, `md:` prefixes).
-- **Theme**: Custom theme colors defined in `tailwind.config.ts`.
+- Files that use `window`, `localStorage`, `matchMedia`, or DOM events must be client components.
+- Avoid importing client-only modules into server-only modules.
 
 ### Imports
 
-- **Path Aliases**: Use `@/` alias for imports from `src` root (e.g., `@/data`, `@/types`).
-  ```typescript
-  import DATA from '@/data';
-  import { ProfileData } from '@/types';
-  ```
-- **Relative Imports**: Used for sibling components or styles within the same module.
-- **Order**:
-  1. External libraries (React, Next.js)
-  2. Internal absolute imports (`@/...`)
-  3. Internal relative imports (`./...`)
+Use the `@/*` alias (configured in `tsconfig.json`) for `src/*`.
 
-## 4. Directory Structure
+Import order (follow existing files):
 
-```
-src/
-├── app/                 # Next.js App Router
-│   ├── components/      # UI Components (colocated here)
-│   │   ├── Profile/     # Component folders with index.ts
-│   │   ├── SettingMenu/
-│   │   └── ...
-│   ├── layout.tsx       # Root layout
-│   └── page.tsx         # Home page
-├── data.ts              # Centralized resume data
-├── ga.ts                # Google Analytics
-├── theme/               # Theme definitions
-├── types.ts             # Global TypeScript definitions
-└── styles/              # Global styles
-```
+1. External (`react`, `next/*`, `clsx`, etc.)
+2. Internal absolute (`@/types`, `@/data`, `@/theme`, ...)
+3. Internal relative (`./...`, `../...`)
 
-## 5. Git Workflow
+Prefer `import type { ... }` for type-only imports.
 
-- **Commit Messages**: Use conventional commits (e.g., `feat: ...`, `fix: ...`, `chore: ...`).
-- **Verification**: Run `bun run lint` and `bun run build` before committing.
+### Naming
 
-## 6. Agents & AI Interaction
+- Components / exported types / interfaces: `PascalCase`
+- Variables / functions: `camelCase`
+- Constants / maps: `SCREAMING_SNAKE_CASE` (e.g. `COMPANY_NAME_MAP`)
+- Files:
+  - Components: `PascalCase.tsx` or `index.tsx` in a component folder
+  - Utilities: `camelCase.ts` (e.g. `ga.ts`)
 
-- **Context**: Always check `src/data.ts` when modifying resume content.
-- **Patterns**: Follow the existing pattern of `FC` usage and folder-based components with `index.ts` re-exports.
-- **Dependencies**: Use `bun add` or `bun add -d` for new packages.
-- **Formatting**: Always apply `bun run prettier` after code generation.
+## 5) Styling (Tailwind v4)
+
+- Tailwind is imported in `src/app/globals.css` via `@import 'tailwindcss';`.
+- Dark mode uses the `.dark` class selector via `@custom-variant dark`.
+- Prefer utility classes; use `clsx` when classes are conditional or composed.
+- Let Prettier + Tailwind plugin sort class order.
+
+## 6) Data & schemas
+
+- Resume content lives in `src/data/data.jsonc` and is exported via `src/data/index.ts`.
+- Keep `src/types.ts` as the source of truth for data shapes.
+- JSONC is supported via `jsonc-loader` (see `next.config.mjs`).
+
+### Build-time data fetch (GitHub API)
+
+This repo can fetch `src/data/data.jsonc` **at build time** from another (private) GitHub repo.
+
+- Script: `bun run fetch:data` (downloads and overwrites `src/data/data.jsonc`)
+- Build: `bun run build` runs `fetch:data` first
+- Optional dev: `bun run dev:remote` (fetch then `next dev`)
+
+Env vars:
+
+- `RESUME_DATA_REPO` (required to enable fetch): `owner/repo`
+- `RESUME_DATA_REF` (optional): branch/tag/sha (default: `main`)
+- `RESUME_DATA_PATH` (optional): path in repo (default: `data.jsonc`)
+- `RESUME_DATA_OUT` (optional): output path (default: `src/data/data.jsonc`)
+- `RESUME_GITHUB_TOKEN` (required for private repos; `GITHUB_TOKEN` also works)
+
+If `RESUME_DATA_REPO` is not set:
+
+- If `src/data/data.jsonc` exists locally, the fetch step is a no-op.
+- If it does **not** exist (fresh clone), `fetch:data` fails with instructions.
+
+Recommended workflow (private data): keep `src/data/data.jsonc` **uncommitted** and generated via `fetch:data`.
+
+## 7) Error handling & safety
+
+- Do not introduce empty `catch {}` blocks. If you must swallow (rare), add a comment explaining why.
+- Prefer early returns and narrow types rather than deeply nested conditionals.
+- Don’t “refactor while fixing” unless explicitly requested.
+
+## 8) Git hygiene
+
+- Before committing: run `bun run lint` and `bun run build`.
+- Commit messages: conventional commits (`feat:`, `fix:`, `chore:`, `docs:`...).
+
+## 9) Cursor / Copilot rules
+
+- No Cursor rules found (`.cursor/rules/` or `.cursorrules` not present).
+- No Copilot instructions found (`.github/copilot-instructions.md` not present).

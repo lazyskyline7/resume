@@ -37,3 +37,6 @@ next-env.d.ts
 
 .opencode
 .shared
+
+# remote-fetched resume data (do not commit)
+src/data/data.jsonc
