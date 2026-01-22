@@ -1,12 +1,15 @@
 import { FC } from 'react';
 import clsx from 'clsx';
 
-interface TimeListTitleProps {
+interface TimelineListTitleProps {
   compact?: boolean;
   children: string;
 }
 
-const TimeListTitle: FC<TimeListTitleProps> = ({ compact, children }) => {
+const TimelineListTitle: FC<TimelineListTitleProps> = ({
+  compact,
+  children,
+}) => {
   if (compact) {
     return (
       <div className="mb-4 text-xs font-bold tracking-wider text-slate-400 uppercase dark:text-slate-500 print:break-after-avoid">
@@ -33,12 +36,11 @@ const TimeListTitle: FC<TimeListTitleProps> = ({ compact, children }) => {
           'from-gradient-from-light via-gradient-via-light to-gradient-to-light bg-linear-to-r',
           // Dark Mode Gradient
           'dark:from-gradient-from-dark dark:via-gradient-via-dark dark:to-gradient-to-dark',
-          // Print Override (Solid Color)
-          'print:bg-theme-600! print:bg-none!'
+          'print:[print-color-adjust:exact]'
         )}
       />
     </div>
   );
 };
 
-export default TimeListTitle;
+export default TimelineListTitle;

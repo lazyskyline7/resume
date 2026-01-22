@@ -2,11 +2,9 @@ import { FC } from 'react';
 import clsx from 'clsx';
 import SettingsMenu from '../components/SettingMenu';
 import Bios from '../components/Bios';
-import TimeListTitle from '@/components/TimeListTitle';
 import { profile, skillSet, workExperience, education } from '@/data';
 import Sidebar from '@/components/Sidebar';
-import TimeLineItem from '@/components/TimeLineItem';
-import { Company, ExperienceInfo } from '@/types';
+import TimelineList from '@/components/TimelineList';
 
 const COMPANY_NAME_MAP = {
   linker: 'Linker Networks Inc.',
@@ -72,14 +70,11 @@ const Home: FC = () => {
               'print:gap-4 print:p-4 print:text-[10px]'
             )}
           >
-            <TimeListTitle>Work Experience</TimeListTitle>
-            {Object.entries(workExperience).map(([name, info]) => (
-              <TimeLineItem
-                key={name}
-                title={COMPANY_NAME_MAP[name as Company]}
-                info={info as ExperienceInfo}
-              />
-            ))}
+            <TimelineList
+              title="Work Experience"
+              data={workExperience}
+              nameMap={COMPANY_NAME_MAP}
+            />
           </main>
         </div>
       </div>

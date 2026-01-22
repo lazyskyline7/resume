@@ -3,13 +3,13 @@ import type { ExperienceInfo } from '@/types';
 import InfoContent from './InfoContent';
 import clsx from 'clsx';
 
-interface TimeLineItemProps {
+interface TimelineListItemProps {
   title: string;
   info: ExperienceInfo;
   compact?: boolean;
 }
 
-const CompactItem: FC<TimeLineItemProps> = ({ title, info }) => (
+const CompactItem: FC<TimelineListItemProps> = ({ title, info }) => (
   <div
     className={clsx(
       'relative mb-6 break-inside-avoid border-l border-slate-200 pl-4',
@@ -29,7 +29,7 @@ const CompactItem: FC<TimeLineItemProps> = ({ title, info }) => (
   </div>
 );
 
-const CardItem: FC<TimeLineItemProps> = ({ title, info }) => (
+const CardItem: FC<TimelineListItemProps> = ({ title, info }) => (
   <div
     className={clsx(
       'group relative mb-6 break-inside-avoid rounded-lg border border-slate-200 p-6 transition-all duration-200',
@@ -120,11 +120,11 @@ const CardItem: FC<TimeLineItemProps> = ({ title, info }) => (
   </div>
 );
 
-const TimeLineItem: FC<TimeLineItemProps> = (props) => {
+const TimelineListItem: FC<TimelineListItemProps> = (props) => {
   if (props.compact) {
     return <CompactItem {...props} />;
   }
   return <CardItem {...props} />;
 };
 
-export default TimeLineItem;
+export default TimelineListItem;
