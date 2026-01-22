@@ -149,9 +149,11 @@ Prefer `import type { ... }` for type-only imports.
 
 ## 6) Data & schemas
 
-- Resume content lives in `src/data/data.jsonc` and is exported via `src/data/index.ts`.
+- Resume content lives in `./data.jsonc`.
 - Keep `src/types.ts` as the source of truth for data shapes.
 - JSONC is supported via `jsonc-loader` (see `next.config.mjs`).
+
+Current usage: server components import `./data.jsonc` directly and pass slices via props.
 
 ### Build-time data fetch (GitHub API)
 

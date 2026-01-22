@@ -1,8 +1,13 @@
 import { FC } from 'react';
 import clsx from 'clsx';
 
-import { College, ExperienceData, SkillLevel, SkillSetData } from '@/types';
-import { socialLinks } from '@/data';
+import type {
+  College,
+  ExperienceData,
+  SkillLevel,
+  SkillSetData,
+  SocialLink as SocialLinkData,
+} from '@/types';
 import SocialLink from './SocialLink';
 import SkillList from './SkillList';
 import TimelineList from '../TimelineList';
@@ -13,10 +18,11 @@ const COLLEGE_NAME_MAP = {
 } as const;
 
 interface SidebarProps {
+  socialLinks: ReadonlyArray<SocialLinkData>;
   skillSet: SkillSetData;
   education: ExperienceData<College>;
 }
-const Sidebar: FC<SidebarProps> = ({ skillSet, education }) => (
+const Sidebar: FC<SidebarProps> = ({ socialLinks, skillSet, education }) => (
   <aside
     className={clsx(
       'glass-sidebar animate-fade-in-left flex flex-col gap-8 p-6',

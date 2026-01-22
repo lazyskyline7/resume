@@ -2,9 +2,13 @@ import { FC } from 'react';
 import clsx from 'clsx';
 import SettingsMenu from '../components/SettingMenu';
 import Bios from '../components/Bios';
-import { profile, skillSet, workExperience, education } from '@/data';
+import type { ResumeData } from '@/types';
+import resumeData from './data.jsonc';
 import Sidebar from '@/components/Sidebar';
 import TimelineList from '@/components/TimelineList';
+
+const { profile, socialLinks, skillSet, workExperience, education } =
+  resumeData as unknown as ResumeData;
 
 const COMPANY_NAME_MAP = {
   linker: 'Linker Networks Inc.',
@@ -60,7 +64,11 @@ const Home: FC = () => {
             'print:grid-cols-[240px_1fr]'
           )}
         >
-          <Sidebar skillSet={skillSet} education={education} />
+          <Sidebar
+            socialLinks={socialLinks}
+            skillSet={skillSet}
+            education={education}
+          />
 
           {/* Main Content (Work Experience) */}
           <main

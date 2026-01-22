@@ -36,7 +36,7 @@ async function main(): Promise<void> {
   const repo = getEnv('RESUME_DATA_REPO'); // e.g. "owner/resume-data"
   const ref = getEnv('RESUME_DATA_REF') ?? 'main';
   const filePath = getEnv('RESUME_DATA_PATH') ?? 'data.jsonc';
-  const outPath = 'src/data/data.jsonc';
+  const outPath = 'src/data.jsonc';
   const token = getEnv('RESUME_GITHUB_TOKEN');
 
   if (!repo) {
