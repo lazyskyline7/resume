@@ -10,13 +10,13 @@ const Button: FC<ButtonProps> = ({ className = '', children, ...props }) => {
     <button
       className={clsx(
         // Base Layout & Shape
-        'glass-button group flex size-10 items-center justify-center rounded-full',
+        'glass-button group flex size-10 cursor-pointer items-center justify-center rounded-full',
         'border border-slate-200 bg-white/50 text-slate-600 shadow-md backdrop-blur-sm',
         'transition-all duration-200',
 
         // Hover & Active States
         'hover:border-theme-600/50 hover:bg-theme-600/20 hover:text-theme-600',
-        'hover:shadow-lg hover:shadow-theme-600/20',
+        'hover:shadow-theme-600/20 hover:shadow-lg',
         'active:scale-95',
 
         // Dark Mode

@@ -1,4 +1,4 @@
-import React, { FC } from 'react';
+import { FC } from 'react';
 import type { ProfileData } from '@/types';
 import clsx from 'clsx';
 
@@ -11,7 +11,7 @@ const Bios: FC<BiosProps> = ({ profile }) => (
     <div className="flex flex-col">
       <h1
         className={clsx(
-          'mb-2 text-4xl font-extrabold uppercase tracking-tighter text-slate-900',
+          'mb-2 text-4xl font-extrabold tracking-tighter text-slate-900 uppercase',
           'dark:text-slate-50',
           'sm:text-5xl lg:text-6xl',
           // Print Styles
@@ -22,7 +22,7 @@ const Bios: FC<BiosProps> = ({ profile }) => (
       </h1>
       <div
         className={clsx(
-          'text-xl font-semibold text-theme-600',
+          'text-theme-600 text-xl font-semibold',
           'dark:text-theme-400',
           'sm:text-2xl',
           // Print Styles

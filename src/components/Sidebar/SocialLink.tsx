@@ -36,7 +36,7 @@ const SocialLink: FC<SocialLinkProps> = ({ socialLink }) => {
         'group flex items-center gap-3 text-slate-600 no-underline transition-all duration-200',
         'hover:text-theme-600',
         'print:text-theme-600',
-        'dark:text-slate-400 dark:hover:text-theme-400'
+        'dark:hover:text-theme-400 dark:text-slate-400'
       )}
       href={socialLink.link}
       target="_blank"
@@ -45,18 +45,18 @@ const SocialLink: FC<SocialLinkProps> = ({ socialLink }) => {
     >
       <div
         className={clsx(
-          'rounded-full bg-slate-100 p-2 border border-transparent transition-all duration-200',
+          'rounded-full border border-transparent bg-slate-100 p-2 transition-all duration-200',
           // Hover effects
-          'group-hover:scale-110 group-hover:bg-theme-600/10',
+          'group-hover:bg-theme-600/10 group-hover:scale-110',
           // Print styles
-          'print:bg-slate-50 print:p-1 print:border print:border-slate-100',
+          'print:border print:border-slate-100 print:bg-slate-50 print:p-1',
           // Dark mode
-          'dark:border-slate-700 dark:bg-slate-800/50 dark:group-hover:bg-theme-400/20'
+          'dark:group-hover:bg-theme-400/20 dark:border-slate-700 dark:bg-slate-800/50'
         )}
       >
         <Icon className="size-5 print:size-3" />
       </div>
-      <div className="break-all text-sm print:text-[10px] print:leading-tight">
+      <div className="text-sm break-all print:text-[10px] print:leading-tight">
         <span className="print:hidden">
           {socialLink.name === 'Email' ? socialLink.link : socialLink.name}
         </span>

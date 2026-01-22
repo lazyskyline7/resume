@@ -1,5 +1,5 @@
 'use client';
-import React, { FC } from 'react';
+import { FC } from 'react';
 import type { Content } from '@/types';
 import { event } from '@/ga';
 import { BsDot } from 'react-icons/bs';
@@ -23,7 +23,7 @@ const InfoContent: FC<Content> = ({ title, url, details }) => {
           const detailUrl = detail.url;
           return (
             <li key={i} className="flex gap-0.5">
-              <div className="w-[18px] h-[24px] flex items-center justify-center">
+              <div className="flex h-6 w-4.5 items-center justify-center">
                 <BsDot size="18px" />
               </div>
               {detailUrl ? (
@@ -64,10 +64,10 @@ const InfoTitle: FC<InfoTitleProps> = ({ title, url }) => {
       href={url}
       onClick={handleClick}
     >
-      <div className="font-medium m-0.5 text-primary-600">{title}</div>
+      <div className="text-primary-600 m-0.5 font-medium">{title}</div>
     </a>
   ) : (
-    <div className="font-medium m-0.5">{title}</div>
+    <div className="m-0.5 font-medium">{title}</div>
   );
 };
 

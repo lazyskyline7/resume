@@ -1,4 +1,4 @@
-import React, { FC } from 'react';
+import { FC } from 'react';
 import type { ExperienceInfo } from '@/types';
 import InfoContent from './InfoContent';
 import clsx from 'clsx';
@@ -18,8 +18,8 @@ const CompactItem: FC<TimeLineItemProps> = ({ title, info }) => (
       'dark:border-slate-700'
     )}
   >
-    <div className="absolute -left-[3px] top-1.5 h-1.5 w-1.5 rounded-full bg-theme-600 dark:bg-theme-400" />
-    <div className="mb-1 text-sm font-semibold leading-none">{title}</div>
+    <div className="bg-theme-600 dark:bg-theme-400 absolute top-1.5 -left-0.75 h-1.5 w-1.5 rounded-full" />
+    <div className="mb-1 text-sm leading-none font-semibold">{title}</div>
     <div className="mb-1 font-mono text-[11px] text-slate-400 dark:text-slate-500">
       {info.from} - {info.to}
     </div>
@@ -35,7 +35,7 @@ const CardItem: FC<TimeLineItemProps> = ({ title, info }) => (
       'group relative mb-6 break-inside-avoid rounded-lg border border-slate-200 p-6 transition-all duration-200',
       'last:mb-0',
       // Hover effects
-      'hover:scale-[1.01] hover:border-slate-300 hover:shadow-lg hover:shadow-theme-600/10',
+      'hover:shadow-theme-600/10 hover:scale-[1.01] hover:border-slate-300 hover:shadow-lg',
       // Print styles
       'print:mb-3 print:border-none print:p-0 print:shadow-none',
       // Dark mode
@@ -53,7 +53,7 @@ const CardItem: FC<TimeLineItemProps> = ({ title, info }) => (
       <div className="flex flex-col gap-1 print:gap-0">
         <h3
           className={clsx(
-            'text-xl font-bold leading-tight tracking-tight text-slate-800',
+            'text-xl leading-tight font-bold tracking-tight text-slate-800',
             'print:text-sm print:font-bold',
             'dark:text-slate-100'
           )}
@@ -63,7 +63,7 @@ const CardItem: FC<TimeLineItemProps> = ({ title, info }) => (
         {info.position && (
           <div
             className={clsx(
-              'text-base font-semibold text-theme-600',
+              'text-theme-600 text-base font-semibold',
               'print:text-xs print:font-semibold',
               'dark:text-theme-400'
             )}
@@ -74,7 +74,7 @@ const CardItem: FC<TimeLineItemProps> = ({ title, info }) => (
       </div>
       <div
         className={clsx(
-          'shrink-0 whitespace-nowrap rounded bg-slate-100 px-2 py-0.5 font-mono text-xs text-slate-500',
+          'shrink-0 rounded bg-slate-100 px-2 py-0.5 font-mono text-xs whitespace-nowrap text-slate-500',
           'print:self-start print:bg-transparent print:p-0 print:text-[10px] print:font-medium print:text-slate-500',
           'dark:bg-slate-700 dark:text-slate-400'
         )}

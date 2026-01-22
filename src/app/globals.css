@@ -97,7 +97,7 @@
   }
 
   .glass-button {
-    @apply bg-slate-100/80 dark:bg-slate-800/80 backdrop-blur-lg;
+    @apply bg-slate-100/80 backdrop-blur-lg dark:bg-slate-800/80;
   }
 }
 

@@ -4,15 +4,15 @@
     "name": "Kung-Ling Hsu",
     "image": "./profile.png",
     "summary": "A detail-oriented software engineer with 6+ years of experience in web and decentralized applications. Proficient in React, NextJS, TypeScript, GraphQL, and Zustand, with a track record of delivering efficient and scalable solutions and enhancing user engagement. Skilled in collaborating with cross-functional teams to drive project success.",
-    "target": "Front-end/Full-stack engineer",
+    "target": "Front-end/Full-stack engineer"
   },
   "socialLinks": [
     {
       "name": "GitHub",
-      "link": "https://github.com/lazyskyline7",
+      "link": "https://github.com/lazyskyline7"
     },
     { "name": "LinkedIn", "link": "https://www.linkedin.com/in/klhsu" },
-    { "name": "Email", "link": "lazy.skyline7@gmail.com" },
+    { "name": "Email", "link": "lazy.skyline7@gmail.com" }
   ],
   "skillSet": {
     "proficiency": [
@@ -22,7 +22,7 @@
       "GraphQL",
       "Zustand",
       "NextJS",
-      "Web3",
+      "Web3"
     ],
     "familiar": [
       "ExpressJS",
@@ -31,15 +31,15 @@
       "Redux",
       "KonvaJS",
       "BabylonJS",
-      "Docker",
+      "Docker"
     ],
     "knowledge": [
       "Python",
       "Java",
       "machine learning",
       "image processing",
-      "computer graphic",
-    ],
+      "computer graphic"
+    ]
   },
   "workExperience": {
     "cronos": {
@@ -51,23 +51,23 @@
         {
           "details": [
             {
-              "title": "Developed a lossless lottery dapp using React, TypeScript, NextJS, and EthersJS, achieving 1.35M USD TVL",
+              "title": "Developed a lossless lottery dapp using React, TypeScript, NextJS, and EthersJS, achieving 1.35M USD TVL"
             },
             {
-              "title": "Added NFT staking feature and optimized web performance, leading to an increase in user engagement and satisfaction on the web3 lending platform",
+              "title": "Added NFT staking feature and optimized web performance, leading to an increase in user engagement and satisfaction on the web3 lending platform"
             },
             {
-              "title": "Developed token staking feature on NFT marketplace which achieved TVL of USD 745K",
+              "title": "Developed token staking feature on NFT marketplace which achieved TVL of USD 745K"
             },
             {
-              "title": "Built metrics, figures, and alarms on the Sentio platform using Node.js by tracing on-chain events and data through Sentio SDK",
+              "title": "Built metrics, figures, and alarms on the Sentio platform using Node.js by tracing on-chain events and data through Sentio SDK"
             },
             {
-              "title": "Integrated reward allocation mechanism to incentivize user onboarding to the zkEVM chain",
-            },
-          ],
-        },
-      ],
+              "title": "Integrated reward allocation mechanism to incentivize user onboarding to the zkEVM chain"
+            }
+          ]
+        }
+      ]
     },
     "cdc": {
       "position": "Frontend Developer",
@@ -78,14 +78,14 @@
         {
           "details": [
             {
-              "title": "Developed decentralized borrowing protocol using React, NextJS, TypeScript, and Web3JS",
+              "title": "Developed decentralized borrowing protocol using React, NextJS, TypeScript, and Web3JS"
             },
             {
-              "title": "Developed a liquid staking protocol which achieved a TVL of USD 13M",
-            },
-          ],
-        },
-      ],
+              "title": "Developed a liquid staking protocol which achieved a TVL of USD 13M"
+            }
+          ]
+        }
+      ]
     },
     "appier": {
       "position": "Software Engineer, Frontend Development",
@@ -97,17 +97,17 @@
           // "title": "Building data science platform",
           "details": [
             {
-              "title": "Built a Customer Data Platform using React, TypeScript, Node.js, GraphQL, and MongoDB, with a strong focus on backend data processing and API integration, resulting in improved performance and customer satisfaction",
+              "title": "Built a Customer Data Platform using React, TypeScript, Node.js, GraphQL, and MongoDB, with a strong focus on backend data processing and API integration, resulting in improved performance and customer satisfaction"
             },
             {
-              "title": "Collaborated with UI/UX designers, PM, and back-end team to clarify requirements, streamlining the development process and ensuring alignment across teams",
+              "title": "Collaborated with UI/UX designers, PM, and back-end team to clarify requirements, streamlining the development process and ensuring alignment across teams"
             },
             {
-              "title": "Planned and managed sprint tasks with the front-end team, ensuring timely delivery and improving team productivity through effective task management and coordination",
-            },
-          ],
-        },
-      ],
+              "title": "Planned and managed sprint tasks with the front-end team, ensuring timely delivery and improving team productivity through effective task management and coordination"
+            }
+          ]
+        }
+      ]
     },
     "linker": {
       "position": "Frontend Engineer",
@@ -119,29 +119,29 @@
           // "title": "Building data labeling platform",
           "details": [
             {
-              "title": "Developed a 2D image labeling system using TypeScript, React, Apollo GraphQL, NextJS, and KonvaJS, improving annotation accuracy and efficiency",
+              "title": "Developed a 2D image labeling system using TypeScript, React, Apollo GraphQL, NextJS, and KonvaJS, improving annotation accuracy and efficiency"
             },
             {
-              "title": "Developed a medical image labeling system for CT and MRI images, enhancing the precision and speed of medical annotations",
+              "title": "Developed a medical image labeling system for CT and MRI images, enhancing the precision and speed of medical annotations"
             },
             {
-              "title": "Developed a LiDAR point cloud labeling system using BabylonJS, enabling more accurate and efficient 3D data labeling",
+              "title": "Developed a LiDAR point cloud labeling system using BabylonJS, enabling more accurate and efficient 3D data labeling"
             },
             {
               "title": "Developed a Microsoft Vision on Edge solution using TypeScript, React, Redux, Redux-Thunk, KonvaJS, and Fluent UI, improving edge computing capabilities for image processing",
-              "url": "https://github.com/Azure-Samples/azure-intelligent-edge-patterns",
-            },
-          ],
-        },
-      ],
-    },
+              "url": "https://github.com/Azure-Samples/azure-intelligent-edge-patterns"
+            }
+          ]
+        }
+      ]
+    }
   },
   "education": {
     "ntu": {
       "from": "Sep 2014",
       "to": "Jun 2017",
       "location": "Taipei, Taiwan",
-      "degree": "Master of Engineering, Bio-Industrial Mechatronics Engineering",
+      "degree": "Master of Engineering, Bio-Industrial Mechatronics Engineering"
       // "content": [
       // {
       //   "title": "Conference",
@@ -169,14 +169,14 @@
       "location": "Taichung, Taiwan",
       "from": "Sep 2009",
       "to": "Jun 2014",
-      "degree": "Bachelor of Engineering, Chemical Engineering",
-    },
+      "degree": "Bachelor of Engineering, Chemical Engineering"
+    }
   },
   "project": {
     "azure": {
       "image": "./Azure-Sample.png",
       "githubLink": "https://github.com/Azure-Samples/azure-intelligent-edge-patterns/tree/master/factory-ai-vision",
-      "content": "A sample showing how to deploy a Custom Vision model to Azure IoT edge device and get Machine learning solution up and running in a single day.",
-    },
-  },
+      "content": "A sample showing how to deploy a Custom Vision model to Azure IoT edge device and get Machine learning solution up and running in a single day."
+    }
+  }
 }

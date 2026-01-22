@@ -37,13 +37,13 @@ const SettingsMenu: FC = () => {
   }, [isOpen]);
 
   return (
-    <div ref={menuRef} className="fixed right-4 top-4 z-50 print:hidden">
+    <div ref={menuRef} className="fixed top-4 right-4 z-50 print:hidden">
       <div
         className={clsx(
-          'absolute right-0 top-12 flex flex-col gap-3 transition-all duration-300 origin-top-right',
+          'absolute top-12 right-0 flex origin-top-right flex-col gap-3 transition-all duration-300',
           isOpen
-            ? 'opacity-100 scale-100 translate-y-0'
-            : 'opacity-0 scale-95 -translate-y-4 pointer-events-none'
+            ? 'translate-y-0 scale-100 opacity-100'
+            : 'pointer-events-none -translate-y-4 scale-95 opacity-0'
         )}
       >
         <ThemeSwitcher />

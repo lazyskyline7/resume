@@ -3,18 +3,12 @@ import clsx from 'clsx';
 import SettingsMenu from '../components/SettingMenu';
 import Bios from '../components/Bios';
 import TimeListTitle from '@/components/TimeListTitle';
-import {
-  profile,
-  skillSet,
-  workExperience,
-  education,
-  
-} from '@/data';
+import { profile, skillSet, workExperience, education } from '@/data';
 import Sidebar from '@/components/Sidebar';
 import TimeLineItem from '@/components/TimeLineItem';
 import { Company, ExperienceInfo } from '@/types';
 
-export const COMPANY_NAME_MAP = {
+const COMPANY_NAME_MAP = {
   linker: 'Linker Networks Inc.',
   appier: 'Appier Inc.',
   cdc: 'Crypto.com',
@@ -23,10 +17,10 @@ export const COMPANY_NAME_MAP = {
 
 const BackgroundBlobs: FC = () => (
   <div className="pointer-events-none fixed inset-0 -z-10 overflow-hidden print:hidden">
-    <div className="absolute -left-40 -top-40 h-96 w-96 rounded-full bg-blob-1/5 blur-[100px]" />
-    <div className="absolute -right-20 -top-20 h-80 w-80 rounded-full bg-blob-2/5 blur-[120px]" />
-    <div className="absolute -bottom-40 -left-20 h-96 w-96 rounded-full bg-blob-3/5 blur-[100px]" />
-    <div className="absolute -right-40 top-1/2 h-80 w-80 rounded-full bg-blob-4/5 blur-[120px]" />
+    <div className="bg-blob-1/5 absolute -top-40 -left-40 h-96 w-96 rounded-full blur-[100px]" />
+    <div className="bg-blob-2/5 absolute -top-20 -right-20 h-80 w-80 rounded-full blur-[120px]" />
+    <div className="bg-blob-3/5 absolute -bottom-40 -left-20 h-96 w-96 rounded-full blur-[100px]" />
+    <div className="bg-blob-4/5 absolute top-1/2 -right-40 h-80 w-80 rounded-full blur-[120px]" />
   </div>
 );
 
@@ -43,7 +37,7 @@ const Home: FC = () => {
 
       <div
         className={clsx(
-          'm-auto min-h-screen w-full max-w-[1200px] bg-white shadow-xl',
+          'm-auto min-h-screen w-full max-w-300 bg-white shadow-xl',
           'dark:bg-slate-900 dark:shadow-none',
           'print:min-h-0 print:w-full print:max-w-none print:shadow-none'
         )}
@@ -73,7 +67,7 @@ const Home: FC = () => {
           {/* Main Content (Work Experience) */}
           <main
             className={clsx(
-              'animate-fade-in-up flex flex-col gap-16 p-6',
+              'animate-fade-in-up flex flex-col gap-8 p-6',
               'md:p-12',
               'print:gap-4 print:p-4 print:text-[10px]'
             )}
@@ -84,7 +78,6 @@ const Home: FC = () => {
                 key={name}
                 title={COMPANY_NAME_MAP[name as Company]}
                 info={info as ExperienceInfo}
-                compact
               />
             ))}
           </main>

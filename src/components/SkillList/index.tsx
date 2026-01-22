@@ -1,6 +1,5 @@
 import type { SkillLevel } from '@/types';
 import { FC } from 'react';
-import clsx from 'clsx';
 import SkillTag from './SkillTag';
 
 const SKILL_LEVEL_MAP: Record<SkillLevel, string> = {
@@ -15,7 +14,7 @@ interface SkillListProps {
 }
 const SkillList: FC<SkillListProps> = ({ level, skills }) => (
   <div className="flex-1 break-inside-avoid">
-    <div className="mb-2 text-sm font-semibold capitalize text-slate-700 dark:text-slate-200 print:text-xs print:font-bold print:text-slate-600">
+    <div className="mb-2 text-sm font-semibold text-slate-700 capitalize dark:text-slate-200 print:text-xs print:font-bold print:text-slate-600">
       {SKILL_LEVEL_MAP[level]}
     </div>
     <div className="flex flex-wrap gap-1.5 print:gap-1">

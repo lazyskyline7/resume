@@ -2,7 +2,6 @@ import type { SkillLevel } from '@/types';
 import { FC } from 'react';
 import clsx from 'clsx';
 
-
 interface SkillTagProps {
   level: SkillLevel;
   skill: string;
@@ -17,19 +16,19 @@ const SkillTag: FC<SkillTagProps> = ({ level, skill }) => {
         {
           // Proficiency (Theme Colored)
           [clsx(
-            'bg-gradient-to-br from-gradient-from-light/10 via-gradient-via-light/10 to-gradient-to-light/10',
+            'from-gradient-from-light/10 via-gradient-via-light/10 to-gradient-to-light/10 bg-linear-to-br',
             'dark:from-gradient-from-dark/20 dark:via-gradient-via-dark/20 dark:to-gradient-to-dark/20',
-            'border-theme-500/30 hover:shadow-md hover:shadow-theme-500/20',
+            'border-theme-500/30 hover:shadow-theme-500/20 hover:shadow-md',
             'text-theme-600 dark:text-theme-400 font-semibold',
-            'print:text-theme-600 print:font-semibold print:border-theme-200'
+            'print:text-theme-600 print:border-theme-200 print:font-semibold'
           )]: level === 'proficiency',
 
           // Familiar (Slate 100)
           [clsx(
             'bg-slate-100 dark:bg-slate-800',
             'border-slate-200 dark:border-white/10',
-            'hover:bg-slate-200 dark:hover:bg-slate-700 hover:shadow-md',
-            'text-slate-700 dark:text-slate-300 font-medium',
+            'hover:bg-slate-200 hover:shadow-md dark:hover:bg-slate-700',
+            'font-medium text-slate-700 dark:text-slate-300',
             'print:text-slate-700'
           )]: level === 'familiar',
 
@@ -37,9 +36,9 @@ const SkillTag: FC<SkillTagProps> = ({ level, skill }) => {
           [clsx(
             'bg-transparent',
             'border-slate-200 dark:border-white/5',
-            'hover:bg-slate-50 dark:hover:bg-slate-800/50 hover:shadow-sm',
-            'text-slate-500 dark:text-slate-400 font-normal',
-            'print:text-slate-500 print:border-slate-200'
+            'hover:bg-slate-50 hover:shadow-sm dark:hover:bg-slate-800/50',
+            'font-normal text-slate-500 dark:text-slate-400',
+            'print:border-slate-200 print:text-slate-500'
           )]: level === 'knowledge',
         }
       )}
