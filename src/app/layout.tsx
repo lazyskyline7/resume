@@ -1,8 +1,8 @@
 import type { Metadata } from 'next';
 import { Inter, JetBrains_Mono } from 'next/font/google';
-import './globals.css';
 import Script from 'next/script';
-import { getThemePreset } from '@/theme';
+import './globals.css';
+import { getThemeCSSVariables } from '@/theme';
 
 const inter = Inter({ subsets: ['latin'], variable: '--font-sans' });
 const jetbrainsMono = JetBrains_Mono({
@@ -15,7 +15,7 @@ export const metadata: Metadata = {
   description: 'resume',
 };
 
-const themePreset = getThemePreset();
+const themeCSSVariables = getThemeCSSVariables();
 
 const themeInitScript = `
   (function() {
@@ -39,7 +39,7 @@ export default function RootLayout({
     <html
       className="print:hidden"
       lang="en"
-      data-theme={themePreset}
+      style={themeCSSVariables as React.CSSProperties}
       suppressHydrationWarning
     >
       <head>

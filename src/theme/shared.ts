@@ -19,20 +19,18 @@ export interface ThemeColors {
 }
 
 const { $schema, ...themePresets } = themesData as Record<string, unknown>;
-export const THEME_PRESETS: Record<string, ThemeColors> =
-  themePresets as Record<string, ThemeColors>;
-
-const DEFAULT_COLORS: ThemeColors = THEME_PRESETS.default;
-
-export function getThemePreset(): string {
-  return process.env.NEXT_PUBLIC_THEME_PRESET || 'default';
-}
+const THEME_PRESETS: Record<string, ThemeColors> = themePresets as Record<
+  string,
+  ThemeColors
+>;
 
 export function getThemeColors(): ThemeColors {
   const presetName = process.env.NEXT_PUBLIC_THEME_PRESET;
   if (presetName && THEME_PRESETS[presetName]) {
     return THEME_PRESETS[presetName];
   }
+  
+  const DEFAULT_COLORS: ThemeColors = THEME_PRESETS.default;
 
   return {
     primary500:
@@ -72,37 +70,23 @@ export function getThemeColors(): ThemeColors {
   };
 }
 
-export function getTailwindThemeColors() {
+export function getThemeCSSVariables(): Record<string, string> {
   const colors = getThemeColors();
-
   return {
-    primary: {
-      400: `rgb(${colors.primary400} / <alpha-value>)`,
-      500: `rgb(${colors.primary500} / <alpha-value>)`,
-      600: `rgb(${colors.primary600} / <alpha-value>)`,
-    },
-    theme: {
-      400: `rgb(${colors.primary400} / <alpha-value>)`,
-      500: `rgb(${colors.primary500} / <alpha-value>)`,
-      600: `rgb(${colors.primary600} / <alpha-value>)`,
-    },
-    blob: {
-      1: `rgb(${colors.blob1} / <alpha-value>)`,
-      2: `rgb(${colors.blob2} / <alpha-value>)`,
-      3: `rgb(${colors.blob3} / <alpha-value>)`,
-      4: `rgb(${colors.blob4} / <alpha-value>)`,
-    },
-    gradient: {
-      'from-light': `rgb(${colors.gradientFromLight} / <alpha-value>)`,
-      'via-light': `rgb(${colors.gradientViaLight} / <alpha-value>)`,
-      'to-light': `rgb(${colors.gradientToLight} / <alpha-value>)`,
-      'from-dark': `rgb(${colors.gradientFromDark} / <alpha-value>)`,
-      'via-dark': `rgb(${colors.gradientViaDark} / <alpha-value>)`,
-      'to-dark': `rgb(${colors.gradientToDark} / <alpha-value>)`,
-    },
-    print: {
-      accent: `rgb(${colors.printAccent})`,
-      text: `rgb(${colors.printText})`,
-    },
+    '--theme-primary-400': colors.primary400,
+    '--theme-primary-500': colors.primary500,
+    '--theme-primary-600': colors.primary600,
+    '--theme-blob-1': colors.blob1,
+    '--theme-blob-2': colors.blob2,
+    '--theme-blob-3': colors.blob3,
+    '--theme-blob-4': colors.blob4,
+    '--theme-gradient-from-light': colors.gradientFromLight,
+    '--theme-gradient-via-light': colors.gradientViaLight,
+    '--theme-gradient-to-light': colors.gradientToLight,
+    '--theme-gradient-from-dark': colors.gradientFromDark,
+    '--theme-gradient-via-dark': colors.gradientViaDark,
+    '--theme-gradient-to-dark': colors.gradientToDark,
+    '--theme-print-accent': colors.printAccent,
+    '--theme-print-text': colors.printText,
   };
 }
