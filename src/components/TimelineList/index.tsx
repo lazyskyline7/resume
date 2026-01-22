@@ -18,17 +18,21 @@ const TimelineList: FC<TimelineListProps> = ({
 }) => {
   return (
     <div
-      className={compact ? 'flex flex-col gap-4 print:break-inside-avoid' : ''}
+      className={compact ? 'flex flex-col print:break-inside-avoid' : ''}
     >
       <TimelineListTitle compact={compact}>{title}</TimelineListTitle>
-      {Object.entries(data).map(([key, info]) => {
+      {Object.entries(data).map(([key, info], index, array) => {
         const displayTitle = nameMap ? nameMap[key] || key : key;
+        const isFirst = index === 0;
+        const isLast = index === array.length - 1;
         return (
           <TimelineListItem
             key={key}
             title={displayTitle}
             info={info}
             compact={compact}
+            isFirst={isFirst}
+            isLast={isLast}
           />
         );
       })}

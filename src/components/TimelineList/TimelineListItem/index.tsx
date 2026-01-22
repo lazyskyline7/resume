@@ -7,17 +7,31 @@ interface TimelineListItemProps {
   title: string;
   info: ExperienceInfo;
   compact?: boolean;
+  isFirst?: boolean;
+  isLast?: boolean;
 }
 
-const CompactItem: FC<TimelineListItemProps> = ({ title, info }) => (
+const CompactItem: FC<TimelineListItemProps> = ({
+  title,
+  info,
+  isFirst,
+  isLast,
+}) => (
   <div
     className={clsx(
-      'relative mb-6 break-inside-avoid border-l border-slate-200 pl-4',
-      'last:mb-0 last:border-l-0',
-      'print:mb-2',
-      'dark:border-slate-700'
+      'relative pb-6 break-inside-avoid pl-4',
+      'last:pb-0',
+      'print:pb-2'
     )}
   >
+    {/* Vertical Line */}
+    <div
+      className={clsx(
+        'absolute left-0 w-px bg-slate-200 dark:bg-slate-700',
+        isFirst ? 'top-1.5' : 'top-0',
+        isLast ? 'h-1.5 bottom-auto' : 'bottom-0'
+      )}
+    />
     <div className="bg-theme-600 dark:bg-theme-400 absolute top-1.5 -left-0.75 h-1.5 w-1.5 rounded-full" />
     <div className="mb-1 text-sm leading-none font-semibold">{title}</div>
     <div className="mb-1 font-mono text-[11px] text-slate-400 dark:text-slate-500">
