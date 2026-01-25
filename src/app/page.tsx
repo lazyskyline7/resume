@@ -3,7 +3,7 @@ import clsx from 'clsx';
 import SettingsMenu from '../components/SettingMenu';
 import Bios from '../components/Bios';
 import type { ResumeData } from '@/types';
-import resumeData from './data.jsonc';
+import resumeData from '../data.jsonc';
 import Sidebar from '@/components/Sidebar';
 import TimelineList from '@/components/TimelineList';
 
