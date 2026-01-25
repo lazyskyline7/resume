@@ -38,7 +38,11 @@ const SocialLink: FC<SocialLinkProps> = ({ socialLink }) => {
         'print:text-theme-600',
         'dark:hover:text-theme-400 dark:text-slate-400'
       )}
-      href={socialLink.link}
+      href={
+        socialLink.name === 'Email'
+          ? `mailto:${socialLink.link}`
+          : socialLink.link
+      }
       target="_blank"
       rel="noopener noreferrer"
       onClick={() => onLinkClick(socialLink.name)}
