@@ -23,7 +23,7 @@ const InfoContent: FC<Content> = ({ title, url, details }) => {
           const detailUrl = detail.url;
           return (
             <li key={i} className="flex gap-0.5">
-              <div className="flex h-6 w-4.5 items-center justify-center">
+              <div className="flex h-6 w-4.5 justify-center pt-px">
                 <BsDot size="18px" />
               </div>
               {detailUrl ? (
